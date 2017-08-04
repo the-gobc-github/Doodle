@@ -23,8 +23,12 @@ if ($p === 'home')
     require '../pages/home.php';
 if ($p === 'connexion')
     require '../pages/connexion.php';
+if ($p === 'connexion_post')
+    require '../pages/tools/connexion_post.php';
 if ($p === 'inscription')
     require '../pages/inscription.php';
+if ($p === 'inscription_post')
+    require '../pages/tools/inscription_post.php';
 /* if ($p === 'administration') */
 /*     require '../pages/administration.php'; */
 /* if ($p === 'reinit') */

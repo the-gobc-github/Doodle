@@ -8,7 +8,7 @@ if ($_POST['login'] != NULL && $_POST['password'] != NULL)
     ['login' => $login, 'password' => $password])->fetch();
     if ($datas[0])
     {
-            if($datas[5] == 1){
+					if($datas[5] == 0){
                 session_start();
                 $_SESSION['login'] = $_POST['login'];
                 header('Location: index.php?p=user');

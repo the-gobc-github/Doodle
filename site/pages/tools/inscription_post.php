@@ -13,7 +13,7 @@
                 ':email' => $email,
                 ':cle' => $cle,
                 ':valid' => $valid));
-            /* header('Location: index.php?p=home'); */
+            header('Location: index.php?p=home');
         }
         catch(Exception $e)
         {
