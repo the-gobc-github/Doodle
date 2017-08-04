@@ -15,7 +15,7 @@ else {
 // Init object
 
 $db = new \App\Database('doodle_db');
-$user_connect = new \App\User_function();
+$user_form = new \App\Form();
 session_start();
 
 ob_start();

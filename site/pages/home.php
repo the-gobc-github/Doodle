@@ -3,16 +3,16 @@
 if (isset($_SESSION['login'])) {
     /* header('Location: index.php?p=user'); */
 
-		$content = $user_connect->form_connexion();
+		$content = $user_form->form_connexion();
     echo $content;
 } else {
-    $content = $user_connect->form_connexion();
+    $content = $user_form->form_connexion();
     echo $content;
 }
 ?>
 </div>
 <?php
-$error = $user_connect->error_parse($_GET['err']);
+$error = $user_form->error_parse($_GET['err']);
 echo $error;
 ?>
 
