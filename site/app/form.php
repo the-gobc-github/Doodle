@@ -2,10 +2,10 @@
 
 namespace App;
 
-class User_function {
+class Form {
 
-    public function get_connexion() {
-      $ret = ("<center><form method='post' action='?p=connexion_post' class='connexion'>
+    public function form_connexion() {
+      $ret = ("<center><form method='post' action='?p=backform&a=connexion' class='connexion'>
           <p>
                 <label for='login'>Entrez votre login :</label><br />
       	        <input type='text'
@@ -30,8 +30,8 @@ class User_function {
       return $ret;
     }
 
-    public function get_inscription() {
-      $ret = ("<center><form method='post' action='?p=inscription_post' class='inscription'>
+    public function form_inscription() {
+      $ret = ("<center><form method='post' action='?p=backform&a=inscription' class='inscription'>
           <p>
                 <label for='login'>Choose your login :</label>
                 <br />
@@ -62,8 +62,8 @@ class User_function {
     }
 
 
-    public function get_admin() {
-        $ret = ("<center><form method='post' action='?p=admin'>
+    public function form_update_pwd() {
+        $ret = ("<center><form method='post' action='?p=prefs&a=update_pwd'>
           <p>
                 <label> Type your old password: </label>
                 <br />
@@ -84,8 +84,8 @@ class User_function {
     return $ret;
     }
 
-    public function get_send_reinit() {
-        $ret = ("<center><form method='post' action='?p=reinit_post&a=send'>
+    public function form_send_verif() {
+        $ret = ("<center><form method='post' action='?p=perfs&a=send_verif'>
           <p>
                 <label> Type your email adress: </label>
                 <br />
@@ -98,8 +98,8 @@ class User_function {
     return $ret;
     }
 
-    public function get_reinit() {
-        $ret = ("<center><form method='post' action='?p=reinit_post&a=open'>
+    public function form_confirm_reinit() {
+        $ret = ("<center><form method='post' action='?p=perfs&a=confirm_reinit'>
           <p>
                 <label> Type your new password: </label>
                  <br />

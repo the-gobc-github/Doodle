@@ -1,6 +1,6 @@
 <div class="main_box">
 <?php
-$content = $user_connect->get_inscription();
+$content = $user_connect->form_inscription();
 echo $content;
 ?>
 </div>

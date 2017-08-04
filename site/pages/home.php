@@ -3,10 +3,10 @@
 if (isset($_SESSION['login'])) {
     /* header('Location: index.php?p=user'); */
 
-		$content = $user_connect->get_connexion();
+		$content = $user_connect->form_connexion();
     echo $content;
 } else {
-    $content = $user_connect->get_connexion();
+    $content = $user_connect->form_connexion();
     echo $content;
 }
 ?>
