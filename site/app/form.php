@@ -63,7 +63,7 @@ class Form {
 
 
     public function form_update_pwd() {
-        $ret = ("<center><form method='post' action='?p=prefs&a=update_pwd'>
+        $ret = ("<center><form method='post' action='?p=backform&a=update_pwd'>
           <p>
                 <label> Type your old password: </label>
                 <br />
@@ -85,7 +85,7 @@ class Form {
     }
 
     public function form_send_verif() {
-        $ret = ("<center><form method='post' action='?p=perfs&a=send_verif'>
+        $ret = ("<center><form method='post' action='?p=backform&a=send_verif'>
           <p>
                 <label> Type your email adress: </label>
                 <br />
@@ -99,7 +99,7 @@ class Form {
     }
 
     public function form_confirm_reinit() {
-        $ret = ("<center><form method='post' action='?p=perfs&a=confirm_reinit'>
+        $ret = ("<center><form method='post' action='?p=backform&a=confirm_reinit'>
           <p>
                 <label> Type your new password: </label>
                  <br />
