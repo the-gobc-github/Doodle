@@ -21,8 +21,8 @@
 // 	echo "</tr>";
 // }
 
-$date = date('l jS \of F Y h:i:s A');
-$e = array();
-$e = split(" ", $date);
-var_dump($e);
+$today = getdate();
+print_r($today);
+
+
 ?>

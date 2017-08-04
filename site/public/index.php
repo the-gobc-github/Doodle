@@ -31,6 +31,7 @@ if ($p === 'inscription_post')
     require '../pages/tools/inscription_post.php';
 if ($p === 'calendar')
     require '../pages/calendar.php';
+	
 
 /* if ($p === 'administration') */
 /*     require '../pages/administration.php'; */
