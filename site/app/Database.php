@@ -22,9 +22,16 @@ class Database {
 
     private function getPDO(){
         if ($this->pdo === null) {
-            $pdo = new PDO('mysql:dbname=blog;host=localhost', 'root', 'root');
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->pdo = $pdo;
+						try {
+							$arrExtraParam= array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"); //use utf8 encoding
+							$pdo = new PDO('mysql:dbname=doodle_db;host=localhost', 'root', 'root',$arrExtraParam);
+							$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+							$this->pdo = $pdo;
+						}
+						catch(PDOException $e) { //error gestion
+								$msg = 'ERREUR PDO dans ' . $e->getFile() . ' L.' . $e->getLine() . ' : ' . $e->getMessage();
+								die($msg);
+						}
         }
 
         return $this->pdo;
@@ -40,6 +47,7 @@ class Database {
         else
         {
             $datas = $this->getPDO()->query($query);
+						// FETCH_OBJ get the columns names of $datas ?
             $req = $datas->fetchAll(PDO::FETCH_OBJ);
         }
         return $req;

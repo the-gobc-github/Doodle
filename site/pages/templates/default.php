@@ -9,7 +9,6 @@
         <div class="menubar">
               <a href="index.php?p=home"><img id="logo" src="../img/logo.png"></a>
 
-              <a href="index.php?p=webcam"><img id="photo_logo" src="../img/photo.png"></a>
         </div><br><br><br><br><br><br>
     <div class="container">
         <?= $content; ?>
