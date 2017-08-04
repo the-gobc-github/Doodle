@@ -8,18 +8,21 @@
 
 <?php
 
-for ($i = 1; $i <= 5;$i++) {
-	echo "<tr>";
-	for ($j = 1; $j <= 7; $j++) {
-		echo "<td>";
-		$x = ((($i - 1) * 7) + $j);
-		if ($x <= 31) {
-			echo $x;
-		}
-		echo "</td>";
-	}
-	echo "</tr>";
-}
+// for ($i = 1; $i <= 5;$i++) {
+// 	echo "<tr>";
+// 	for ($j = 1; $j <= 7; $j++) {
+// 		echo "<td>";
+// 		$x = ((($i - 1) * 7) + $j);
+// 		if ($x <= 31) {
+// 			echo $x;
+// 		}
+// 		echo "</td>";
+// 	}
+// 	echo "</tr>";
+// }
 
-echo date('l jS \of F Y h:i:s A');
+$date = date('l jS \of F Y h:i:s A');
+$e = array();
+$e = split(" ", $date);
+var_dump($e);
 ?>
