@@ -13,12 +13,22 @@
                 ':email' => $email,
                 ':cle' => $cle,
                 ':valid' => $valid));
-            header('Location: index.php?p=home');
+            $to = $email;
+            $subject = "Inscription Camagru";
+
+            $message = "<html><head></head><body><ul>Bienvenue sur Camagru!</ul>
+            <ul>Veuillez cliquer sur le lien ci-dessous pour activer votre compte!</ul>
+            <ul>http://localhost:8080/camagru/public/index.php?p=validation&log=$login&cle=$cle</ul>
+            </body></html>";
+
+            $headers = 'MIME-Version: 1.0' . "\r\n";
+            $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+
+            mail($to, $subject, $message, $headers);
+            header('Location: index.php?p=home&c=success');
         }
         catch(Exception $e)
         {
-
-						echo 'caca';
             die('Erreur : '.$e->getMessage());
         }
     }
