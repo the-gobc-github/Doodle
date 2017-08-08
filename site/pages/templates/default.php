@@ -8,7 +8,6 @@
   <body>
         <div class="menubar">
               <a href="index.php?p=home"><img id="logo" src="../img/logo.png"></a>
-
         </div><br><br><br><br><br><br>
     <div class="container">
         <?= $content; ?>

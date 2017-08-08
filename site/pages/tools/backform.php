@@ -1,7 +1,11 @@
-<?p
-switch ($GET['a']) {
+<?php
+ini_set('display_errors','on');
+error_reporting(E_ALL);
+$a = $_GET['a'];
+switch ($a) {
     case 'connection':
 
+		#pas de if dans les if ?
 		if ($_POST['login'] != NULL && $_POST['password'] != NULL)
 		{
 				$login = $_POST['login'];
@@ -17,12 +21,12 @@ switch ($GET['a']) {
 										header('Location: index.php?p=user');
 								}
 								else {
-										header('Location: index.php?p=form&c=fail&err=9');
+										header('Location: index.php?p=home&a=error&c=fail&err=9');
 								}
 
 				}
 				else {
-						header('Location: index.php?p=connexion&c=fail&err=8');
+						header('Location: index.php?p=home&a=error&c=fail&err=8');
 				}
 			}
         break;
@@ -81,9 +85,6 @@ switch ($GET['a']) {
 			}
 						break;
 
-		case 'update_pwd':
-			//to implement
-						break;
 		case 'send_verif':
 			//to implement
 						break;

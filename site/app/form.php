@@ -21,9 +21,9 @@ class Form {
       					<br /><br />
                 <input type='submit' name='connexion' value='Sign in'>
                 <br /><br />
-      					<label><a href='?p=reinit'>Forgot your password ?</a></label>
+      					<label><a href='?p=home&a=change_pwd'>Forgot your password ?</a></label>
       					<br /><br />
-      					<label><a href='?p=inscription'>Sign up</a></label>
+      					<label><a href='?p=home&a=new_user'>Sign up</a></label>
           </p>
       </form></center>
       ");
@@ -62,27 +62,27 @@ class Form {
     }
 
 
-    public function form_update_pwd() {
-        $ret = ("<center><form method='post' action='?p=backform&a=update_pwd'>
-          <p>
-                <label> Type your old password: </label>
-                <br />
-                <input type='password' id='pwd' name='pwd'/>
-                <br /><br />
-                <label> Confirm your old password: </label>
-                 <br />
-                <input type='password' id='confirm' name='confirm'/>
-                <br /> <br />
-                <label> Type your new password: </label>
-                 <br />
-                <input type='password' id='new_pwd' name='new_pwd'/>
-                <br /> <br />
-                <input type='submit' id='submit' name='submit' value='OK' />
-                <br />
-         </p>
-    </form></center>");
-    return $ret;
-    }
+    /* public function form_update_pwd() { */
+    /*     $ret = ("<center><form method='post' action='?p=backform&a=update_pwd'> */
+    /*       <p> */
+    /*             <label> Type your old password: </label> */
+    /*             <br /> */
+    /*             <input type='password' id='pwd' name='pwd'/> */
+    /*             <br /><br /> */
+    /*             <label> Confirm your old password: </label> */
+    /*              <br /> */
+    /*             <input type='password' id='confirm' name='confirm'/> */
+    /*             <br /> <br /> */
+    /*             <label> Type your new password: </label> */
+    /*              <br /> */
+    /*             <input type='password' id='new_pwd' name='new_pwd'/> */
+    /*             <br /> <br /> */
+    /*             <input type='submit' id='submit' name='submit' value='OK' /> */
+    /*             <br /> */
+    /*      </p> */
+    /* </form></center>"); */
+    /* return $ret; */
+    /* } */
 
     public function form_send_verif() {
         $ret = ("<center><form method='post' action='?p=backform&a=send_verif'>
@@ -190,3 +190,4 @@ class Form {
 
 }
 ?>
+

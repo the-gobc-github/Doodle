@@ -21,8 +21,8 @@ session_start();
 ob_start();
 if ($p === 'home')
     require '../pages/home.php';
-if ($p === 'connexion')
-    require '../pages/connexion.php';
+if ($p === 'backform')
+    require '../pages/tools/backform.php';
 if ($p === 'connexion_post')
     require '../pages/tools/connexion_post.php';
 if ($p === 'inscription')
@@ -34,7 +34,7 @@ if ($p === 'calendar')
 if ($p === 'backcalendar')
     require '../pages/tools/backcalendar.php';
 
-	
+
 
 /* if ($p === 'administration') */
 /*     require '../pages/administration.php'; */
