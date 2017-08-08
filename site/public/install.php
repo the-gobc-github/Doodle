@@ -50,11 +50,11 @@ else
 	echo "\n";
 }
 
-$statement = "CREATE TABLE association(
+$statement = "CREATE TABLE days(
 id int(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-day VARCHAR(50) NOT NULL,
+days int(6) NOT NULL,
 userid int(6) NOT NULL,
-group VARCHAR(50) NOT NULL
+groups int(6) NOT NULL
 )";
 
 if (mysqli_query($connection, $statement))
