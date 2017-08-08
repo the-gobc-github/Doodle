@@ -4,26 +4,26 @@ switch ($a) {
 	// ajouter une disponibilite sur une journee 
 	// expect GET.day + GET.user + GET.group
 	    case 'addevent':
-	    echo "<h1>colin</h1>";
+	    if ($_GET['day'] != NULL && $_GET['userid'] != NULL && $_GET['group'] != NULL)
+		{
+				$day = $_GET['day'];
+				$userid = $_GET['userid'];
+				$group = $_GET['group'];
+				try {
+							$res = $db->query('INSERT INTO days (days, userid, groups) VALUES(:days, :userid, :groups)', array(
+									':days' => $day,
+									':userid' => $userid,
+									':groups' => $group
+											));
+							echo "colin";							
+							// header('Location: index.php?p=calendar&success=1');
+					}
+					catch(Exception $e)
+					{
+							die('Erreur : '.$e->getMessage());
+					}
+			}
         break;
-	 //    if ($_GET['day'] != NULL && $_GET['userid'] != NULL && $_GET['group'] != NULL)
-		// {
-		// 		$day = $_GET['day'];
-		// 		$userid = $_GET['userid'];
-		// 		try {
-		// 					$res = $db->query('INSERT INTO days (day, userid, group) VALUES(:day, :userid, :group)', array(
-		// 							':day' => $day,
-		// 							':userid' => $userid,
-		// 							':group' => $group
-		// 									));
-							
-		// 					header('Location: index.php?p=calendar');
-		// 			}
-		// 			catch(Exception $e)
-		// 			{
-		// 					die('Erreur : '.$e->getMessage());
-		// 			}
-		// 	}
 
     // supprimer une disponibilite sur une journee 
     // expect GET.day + GET.user

@@ -44,10 +44,18 @@ label {
 .main_box {
     margin: 0 auto;
     width: 380px;
-    border: 8px solid <?php echo $user;?>;
-    background-color: <?php echo $user;?>;
 }
 
 body {
     background-color: #e6e3e1;
 }
+
+.calendar {
+    border: 25px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+}
+

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link href="../public/css/style.css" rel="stylesheet"/>
+    <link href="../public/css/style.css?v=<?=time();?>" rel="stylesheet"/>
   </head>
   <body>
         <div class="menubar">
