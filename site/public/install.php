@@ -59,7 +59,7 @@ groups int(6) NOT NULL
 
 if (mysqli_query($connection, $statement))
 {
-	echo "table users create";
+	echo "table days create";
 	echo "\n";
 }
 else
@@ -68,6 +68,22 @@ else
 	echo "\n";
 }
 
+$statement = "CREATE TABLE friends(
+id int(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+member_id int(6) NOT NULL,
+friend_id int(6) NOT NULL
+)";
+
+if (mysqli_query($connection, $statement))
+{
+	echo "table friends created";
+	echo "\n";
+}
+else
+{
+	echo "error creating table user".mysqli_error($connection);
+	echo "\n";
+}
 mysqli_close($connection);
 
 
