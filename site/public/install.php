@@ -50,6 +50,24 @@ else
 	echo "\n";
 }
 
+$statement = "CREATE TABLE association(
+id int(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+day VARCHAR(50) NOT NULL,
+userid int(6) NOT NULL,
+group VARCHAR(50) NOT NULL
+)";
+
+if (mysqli_query($connection, $statement))
+{
+	echo "table users create";
+	echo "\n";
+}
+else
+{
+	echo "error creating table user".mysqli_error($connection);
+	echo "\n";
+}
+
 mysqli_close($connection);
 
 
