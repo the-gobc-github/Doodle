@@ -9,7 +9,7 @@
     <?php echo $year ?>
   </div>
   <div class="months">
-    <ul >
+    <ul class="pagination pagination-lg">
       <?php foreach ($date->months as $id=>$m): ?>
         <li><a href="#" id="linkMonth<?php echo $id + 1?>"><?php echo utf8_encode($m)?></a></li>
       <?php endforeach; ?>
@@ -18,11 +18,11 @@
   <?php $dates = current($dates);?>
   <?php foreach($dates as $m=>$days):?>
     <div class="month" id="month<?php echo $m?>">
-      <table>
+      <table class="table table-bordered">
         <thead>
-          <tr>
+          <tr >
             <?php foreach ($date->days as $d): ?>
-              <th><?php echo substr($d, 0, 3); ?></th>
+              <th class="table-active"><?php echo substr($d, 0, 3); ?></th>
             <?php endforeach; ?>
           </tr>
         </thead>
@@ -30,7 +30,7 @@
           <tr>
             <?php $end = end($days); foreach ($days as $d=>$w): ?>
               <?php if ($d == 1): ?>
-                <td colspan="<?php echo $w-1; ?>"</td>
+                <td  colspan="<?php echo $w-1; ?>"</td>
               <?php endif; ?>
               <td>
                 <div class="relative">
