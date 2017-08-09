@@ -5,6 +5,7 @@ echo "<div class='menu-preferences'>
 		<li><a href='index.php?p=backprefs&a=prf_friends'>Mes amis</a></li>
 		<li><a href='index.php?p=backprefs&a=prf_groups'>Mes groupes</a></li>
 		<li><a href='index.php?p=backprefs&a=prf_account'>Mon compte</a></li>
+		<li><a href='index.php?p=backprefs&a=disconnect'>Deconnexion</a></li>
 	</ul>
 	</div>";
 }

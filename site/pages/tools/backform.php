@@ -16,7 +16,7 @@ switch ($a) {
 					#data[5] == 1 for mail association.. set to zero temporary
 					if($datas[5] == 0){
 							$_SESSION['login'] = $login;
-							include('../pages/preferences.php');
+							include('../pages/calendar.php');
 					}
 					else {
 								include('../pages/home.php');
