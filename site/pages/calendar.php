@@ -1,45 +1,55 @@
-<table class="calendar" align="center" border=1 cellpadding=2>
-
-<tr>
-
-<th>Lundi <th>Mardi <th>Mercredi <th>Jeudi <th>Vendredi <th>Samedi <th>Dimanche
-
-</tr>
-
 <?php
+  $year = date('Y');
+  $dates = $date->getAllDays($year);
 
-$Daylist = array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
-$today = getdate();
-//stock date and day in vars :
-$day = $today['weekday']; //index = 4
-$date = $today['mday'];
-// get day_idx thanks to day_array ['Monday','Tuesday',...]
-$day_idx = array_keys($Daylist, $day);
-$rest = $date % 8;
-if ($date >= 8)
-{
-	if ($day_idx[0] < $rest) {
-		$first_day_idx = 7+($day_idx[0] - $rest);
-	}
-	else {
-		$first_day_idx = $day_idx[0] - $rest;
-	}
-}
-else {
-	$first_day_idx = $day_idx[0] - $rest;
-}
-$cmt = 1;
+?>
 
-for ($i = 1; $i <= 5;$i++) {
-	echo "<tr>";
-	for ($j = 1; $j <= 7; $j++) {
-		echo "<td>";
-		$x = ((($i - 1) * 7) + $j);
-		if ($x <= 31 && $x > $first_day_idx) {
-			echo $cmt;
-			$cmt += 1;
-		}
-		echo "</td>";
-	}
-	echo "</tr>";
-}
+<div class="periods">
+  <div class="year">
+    <?php echo $year ?>
+  </div>
+  <div class="months">
+    <ul class="pagination pagination-lg">
+      <?php foreach ($date->months as $id=>$m): ?>
+        <li><a href="#" id="linkMonth<?php echo $id + 1?>"><?php echo utf8_encode($m)?></a></li>
+      <?php endforeach; ?>
+    </ul>
+  </div>
+  <?php $dates = current($dates);?>
+  <?php foreach($dates as $m=>$days):?>
+    <div class="month" id="month<?php echo $m?>">
+      <table class="table table-bordered">
+        <thead>
+          <tr >
+            <?php foreach ($date->days as $d): ?>
+              <th class="table-active"><?php echo substr($d, 0, 3); ?></th>
+            <?php endforeach; ?>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <?php $end = end($days); foreach ($days as $d=>$w): ?>
+              <?php if ($d == 1): ?>
+                <td  colspan="<?php echo $w-1; ?>"</td>
+              <?php endif; ?>
+              <td>
+                <div class="relative">
+                  <?php echo$d; ?>
+                </div>
+              </td>
+              <?php if ($w == 7): ?>
+          <tr/><tr>
+              <?php endif; ?>
+          <?php endforeach; ?>
+          <?php if ($end != 7): ?>
+            <td colspan="<?php echo 7-$end?>"></td>
+          <?php endif; ?>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+<?php endforeach;?>
+</div>
+<?php
+include('../app/js/calendar.js');
+ ?>

@@ -37,7 +37,7 @@ if ($p === 'home')
 if ($p === 'backform')
     require '../pages/tools/backform.php';
 if ($p === 'calendar')
-    require '../pages/calendar3.php';
+    require '../pages/calendar.php';
 if ($p === 'backcalendar')
     require '../pages/tools/backcalendar.php';
 if ($p === 'backprefs')
