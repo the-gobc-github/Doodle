@@ -13,7 +13,7 @@ else {
 }
 
 // Init object
-
+#implement include functions here
 $db = new \App\Database('doodle_db');
 $user_form = new \App\Form();
 session_start();

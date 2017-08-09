@@ -1,7 +1,7 @@
 <div class="main_box">
 <?php
 if (isset($_SESSION['login'])) {
-header('Location: index.php?p=user');
+/* header('Location: index.php?p=user'); */
 }
 
 if (!(isset($_GET['a']))) {
@@ -22,7 +22,7 @@ if (isset($_GET['a']))	{
 				$content = $user_form->form_send_verif();
 				break;
 			case 'success' :
-				$content = $user_form->form_connection();
+				$content = $user_form->form_connexion();
 				break;
 				}
 echo $content;
