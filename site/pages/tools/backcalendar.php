@@ -22,18 +22,28 @@ switch ($a) {
 					{
 							die('Erreur : '.$e->getMessage());
 					}
-			}
+		}
         break;
 
     // supprimer une disponibilite sur une journee 
     // expect GET.day + GET.user
-		case "caca":
-			echo "<h1>caca</h1>";
+		case "delete":
+			if ($_GET['id'] != NULL && $_GET['userid'] != NULL) 
+			{
+				$userid = $_GET['userid'];
+				$id = $_GET['id']; 
+				$statement = "DELETE FROM `days` WHERE `id`='$id' AND `userid`='$userid'";
+    			$db->simple_query($statement);		
+				echo "colin";
+    		}
+    		else {
+    			echo "ERROR";
+    		}
+    		break;
+	// obtenir un objet de toutes les disponilites d'un groupe 
+	//	expect GET.groupid
+		case "get_elem":
+			//to implement
 						break;
-	// // obtenir un objet de toutes les disponilites d'un groupe 
-	// //	expect GET.groupid
-	// 	case "get_elem":
-	// 		//to implement
-	// 					break;
 }
 ?>

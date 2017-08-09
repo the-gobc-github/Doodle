@@ -17,7 +17,7 @@ class Date{
         $d = date('j', $date);
         $w = str_replace('0', '7', date('w', $date));
         $r[$y][$m][$d] = $w;
-        $date = strtotime(date('Y-m-d', $date).' +1 DAY');
+        $date = strtotime(date('Y-m-d', $date).' + 1 DAY');
       }
       return $r;
   }
