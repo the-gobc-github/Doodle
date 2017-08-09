@@ -3,20 +3,30 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="../public/css/style.css?v=<?=time();?>" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   </head>
   <body>
-        <div class="menubar">
-			<a href="index.php?p=home"><img id="logo" src="../img/logo.png"></a>
-			<a href="index.php?p=preferences"><img id="logo_prefs" src="../img/logo_prefs.png"></a>
-
-
-        </div><br><br><br><br><br><br>
-    <div class="container">
+        <nav class="navbar navbar-default">
+              <a href="index.php?p=home"><img id="logo" src="../img/logo.png"></a>
+              <a href="index.php?p=preferences"><img id="logo_prefs" src="../img/logo_prefs.png"></a>
+        <?php
+          if ($_SESSION['login'] === NULL)
+          {
+            $connection = $user_form->form_connexion();
+            echo $connection;
+          }
+        ?>
+      </nav>
+      <div class="container text-center">
+        </nav><br><br>
         <?= $content; ?>
-    </div>
+      </div>
     <div class ="footer">
 
     </div>
   </body>
+  <!-- <script src="../app/js/calendar.js"></script> -->
+
 </html>

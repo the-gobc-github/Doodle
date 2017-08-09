@@ -5,59 +5,63 @@ namespace App;
 class Form {
 
     public function form_connexion() {
-      $ret = ("<center><form method='post' action='?p=backform&a=connexion' class='connexion'>
-          <p>
-                <label for='login'>Entrez votre login :</label><br />
-      	        <input type='text'
+      $ret = ("
+      <div class='pull-right' style='margin-top: 20px'>
+      <form class='form-inline' method='post' action='?p=backform&a=connexion' class='connexion'>
+                <div class='form-group'>
+      	        <input class='form-control' type='text' placeholder='Login'
                           name='login'
-                          size='30'
                           name : 'login '/>
-      					<br /><br />
-      	        <label for='password'>Entrez votre Mot de passe :</label><br />
-      	        <input type='password'
+                </div>
+                <div class='form-group'>
+      	        <input class='form-control' type='password' placeholder='Mot de Passe'
                           name='password'
-                          size='30'
                           name : 'password'/>
-      					<br /><br />
-                <input type='submit' name='connexion' value='Sign in'>
-                <br /><br />
-      					<label><a href='?p=home&a=change_pwd'>Forgot your password ?</a></label>
-      					<br /><br />
-      					<label><a href='?p=home&a=new_user'>Sign up</a></label>
-          </p>
-      </form></center>
+                </div>
+                <input class='btn btn-primary' type='submit' name='connexion' value='Sign in'>
+                </br></br>
+      					<label class='pull-right' style='margin-right: 90px' ><a style='text-decoration:none' href='?p=home&a=change_pwd'>Forgot your password?</a></label>
+      </form>
+      </div>
       ");
       return $ret;
     }
 
     public function form_inscription() {
-      $ret = ("<center><form method='post' action='?p=backform&a=inscription' class='inscription'>
-          <p>
-                <label for='login'>Choose your login :</label>
-                <br />
-      	        <input type='text' name='login' id='login' size='30' />
-                <br /><br />
-                <label for='email'>Enter your mail :</label>
-                <br />
-      	        <input type='text' name='email' id='email' size='30' />
-                <br /><br />
-      	        <label for='password'>Choose a password :</label>
-      	        <br />
-      	        <input type='password'
+      $ret = ("
+              <H1>Pas encore inscrit(e)?</H1>
+              <br/><br/>
+              <form class='form-horizontal' method='post' action='?p=backform&a=inscription' class='inscription'>
+              <fieldset>
+                <div class='form-group'>
+                  <label class='control-label' style='margin-left: -10px' for='login'>Choose your login :</label>
+                   <input type='text' name='login' id='login' size='30' />
+                </div>
+                <div class='form-group'>
+                  <label class='control-label' style='margin-left: 10px' for='email'>Enter your mail :</label>
+      	          <input type='text' name='email' id='email' size='30' />
+                </div>
+                <div class='form-group'>
+                  <label class='control-label' class='control-label' style='margin-left: -20px' for='password'>Choose a password :</label>
+      	           <input type='password'
                           name='password'
                           id='password'
                           size='30' />
-                <br /><br>
-                <label for='password_confirm'>Confirm your password :</label><br />
-      	        <input type='password'
+                </div>
+                <div class='form-group'>
+                  <label class='control-label' style='margin-left: -45px' for='password_confirm'>Confirm your password :</label>
+      	           <input type='password'
                           name='password_confirm'
                           id='password_confirm'
                           size='30' />
-                <br /><br>
-                <label>You will receive confirmation via email as soon as possible.</label><br><br>
-      	        <input type='submit' value='Valider' class='valider' />
-          </p>
-      </form><center>");
+                </div>
+                <div class='form-group'>
+                  <label>You will receive confirmation via email as soon as possible.</label><br><br>
+      	           <input class='btn-primary btn' type='submit' value='Valider' class='valider' />
+                </div>
+                </fieldset>
+              </form>");
+
       return $ret;
     }
 
@@ -190,4 +194,3 @@ class Form {
 
 }
 ?>
-

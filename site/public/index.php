@@ -16,6 +16,8 @@ else {
 #implement include functions here
 $db = new \App\Database('doodle_db');
 $user_form = new \App\Form();
+$date = new \App\Date();
+
 session_start();
 
 ob_start();
@@ -24,7 +26,7 @@ if ($p === 'home')
 if ($p === 'backform')
     require '../pages/tools/backform.php';
 if ($p === 'calendar')
-    require '../pages/calendar.php';
+    require '../pages/calendar3.php';
 if ($p === 'backcalendar')
     require '../pages/tools/backcalendar.php';
 if ($p == 'preferences')

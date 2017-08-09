@@ -3,6 +3,10 @@
 
 }
 
+.navbar {
+    background-color: black;
+}
+
 .menubar {
     height: 100px;
     width: 100vw;
@@ -41,7 +45,7 @@ label {
 
 .main_box {
     margin: 0 auto;
-    width: 380px;
+    width: 400px;
     border: 8px solid <?php echo $user;?>;
     background-color: <?php echo $user;?>;
 }

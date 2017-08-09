@@ -16,15 +16,15 @@ $date = $today['mday'];
 // get day_idx thanks to day_array ['Monday','Tuesday',...]
 $day_idx = array_keys($Daylist, $day);
 $rest = $date % 8;
-if ($date >= 8) 
+if ($date >= 8)
 {
 	if ($day_idx[0] < $rest) {
 		$first_day_idx = 7+($day_idx[0] - $rest);
-	} 
+	}
 	else {
 		$first_day_idx = $day_idx[0] - $rest;
 	}
-} 
+}
 else {
 	$first_day_idx = $day_idx[0] - $rest;
 }
@@ -43,5 +43,3 @@ for ($i = 1; $i <= 5;$i++) {
 	}
 	echo "</tr>";
 }
-
-

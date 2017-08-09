@@ -1,11 +1,11 @@
-<div class="main_box">
+<!-- <div class="main_box"> -->
 <?php
 if (isset($_SESSION['login'])) {
 /* header('Location: index.php?p=user'); */
 }
 
 if (!(isset($_GET['a']))) {
-	$content = $user_form->form_connexion();
+	$content = $user_form->form_inscription();
 	echo $content;
 }
 
@@ -28,4 +28,4 @@ if (isset($_GET['a']))	{
 echo $content;
 }
 ?>
-</div>
+<!-- </div> -->
