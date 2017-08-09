@@ -19,6 +19,7 @@ function includeFile($file, $variables) {
 		/* * you can pass an array...*/
     include($file);
 }
+
 function includeFileWithVariables($fileName, $variablesArray) {
 	/* Example :
 	/* includeFileWithVariables("index.php",array('p'=>'calendar')); */
