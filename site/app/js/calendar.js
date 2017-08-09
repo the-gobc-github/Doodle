@@ -3,7 +3,7 @@
            jQuery(function($){
               $('.month').hide();
               $('.month:first').show();
-              // $('.months a:first').addClass('active');
+              $('.months a:first').addClass('active');
               var current = 1;
               $('.months a').click(function(){
                    var month = $(this).attr('id').replace('linkMonth','');
@@ -15,8 +15,8 @@
                        $('.months a').removeClass('active');
                        $('.months a#linkMonth'+month).addClass('active');
                        current = month;
-                   }
-                   return false;
+                     }
+                     return true;
+                 });
               });
-           });
   </script>

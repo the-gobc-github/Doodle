@@ -17,7 +17,7 @@
   </div>
   <?php $dates = current($dates);?>
   <?php foreach($dates as $m=>$days):?>
-    <div class="month" id="month">
+    <div class="month" id="month<?php echo $m?>">
       <table>
         <thead>
           <tr>
