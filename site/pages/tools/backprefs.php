@@ -25,12 +25,15 @@
 		if (isset($_SESSION['login'])) {
 			if (isset($_POST['friend'])) {
 				$friend = $_POST['friend'];
-				$statement = "SELECT * FROM `users` WHERE `login`='$friend'";
+				$member = $_SESSION['login'];
+				$statement = "SELECT `id` FROM `users` WHERE `login`='$friend'";
+				$statement2 = "SELECT `id` FROM `users` WHERE `login`='$member'";
 				$res = $db->query($statement);
-				$member_id = 5;
-				$friend_id = 7;
+				$res2 = $db->query($statement2);
+				$friend_id = intval(array_pop(array_values($res))->id);
+				$member_id = intval(array_pop(array_values($res2))->id);
 				try {
-				$res2 = $db->query('INSERT INTO friends (member_id, friend_id) VALUES (:m, :f)', array(
+				$res3 = $db->query('INSERT INTO friends (member_id, friend_id) VALUES (:m, :f)', array(
 								':m' => $member_id,
 								':f' => $friend_id
 								));

@@ -64,7 +64,7 @@ if (mysqli_query($connection, $statement))
 }
 else
 {
-	echo "error creating table user".mysqli_error($connection);
+	echo "error creating table days".mysqli_error($connection);
 	echo "\n";
 }
 
@@ -81,7 +81,25 @@ if (mysqli_query($connection, $statement))
 }
 else
 {
-	echo "error creating table user".mysqli_error($connection);
+	echo "error creating table friends".mysqli_error($connection);
+	echo "\n";
+}
+
+$statement = "CREATE TABLE groups(
+id int(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(200) NOT NULL,
+admin VARCHAR(200) NOT NULL
+members VARCHAR(200) NOT NULL
+)";
+
+if (mysqli_query($connection, $statement))
+{
+	echo "table groups created";
+	echo "\n";
+}
+else
+{
+	echo "error creating table groups".mysqli_error($connection);
 	echo "\n";
 }
 mysqli_close($connection);
