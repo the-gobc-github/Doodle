@@ -5,7 +5,7 @@ namespace App;
 class Date{
 
   var $days = array('Lundi', 'Mard', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimance');
-  var $months = array('Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre');
+  var $months = array('JAN', 'FEV', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec');
 
   function getAllDays($year){
       $r = array();

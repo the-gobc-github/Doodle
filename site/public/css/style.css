@@ -60,3 +60,8 @@ label {
 body {
     background-color: #e6e3e1;
 }
+
+.stylemonth {
+    display: block;
+    font-family: Futura;
+}
