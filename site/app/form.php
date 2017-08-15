@@ -4,6 +4,11 @@ namespace App;
 
 class Form {
 
+    public function get_calendar($what,$from,$where) {
+         $statement = 'SELECT' . $what . 'FROM' . $from . 'WHERE' . '$where';
+         return $statement; 
+    }
+
     public function form_connexion() {
       $ret = ("
       <div class='pull-right' style='margin-top: 20px'>
