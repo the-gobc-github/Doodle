@@ -185,7 +185,7 @@ switch($a) {
 				$statement = "SELECT `grouplist` FROM `users` WHERE `id`='$member_id'";
 				$res = $db->query($statement);
 				$grouplist = array_pop(array_values($res))->grouplist;
-				var_dump($grouplist);
+				/* var_dump($grouplist); */
 
 				$parts = explode(',', $grouplist);
 				/* var_dump($parts); */
@@ -216,7 +216,7 @@ switch($a) {
 							$new_list .= $value	. ',';
 						}
 					}
-					var_dump($new_list);
+					/* var_dump($new_list); */
 
 					$statement = "UPDATE groups SET members = :f WHERE id='$group_id'";
 					try {
@@ -239,7 +239,7 @@ switch($a) {
 							$new_list .= $value	. ',';
 						}
 					}
-					var_dump($new_list);
+					/* var_dump($new_list); */
 
 					$statement = "UPDATE users SET grouplist = :f WHERE id='$friend_id'";
 					try {
@@ -273,7 +273,7 @@ switch($a) {
 				$statement = "SELECT `grouplist` FROM `users` WHERE `id`='$member_id'";
 				$res = $db->query($statement);
 				$grouplist = array_pop(array_values($res))->grouplist;
-				var_dump($grouplist);
+				/* var_dump($grouplist); */
 
 				$parts = explode(',', $grouplist);
 				/* var_dump($parts); */
@@ -314,6 +314,23 @@ switch($a) {
 						}
 
 					}
+
+					#delete associated event
+					/* $statement = "SELECT `eventlist` FROM `groups` WHERE `id`='$group_id'"; */
+					/* $res = $db->query($statement); */
+					/* $grp_event = array_pop(array_values($res))->members; */
+					/* $ev_arr = explode(',',$grp_event); */
+					/* foreach ($ev_arr as $ev_id) { */
+					/* $statement = "DELETE FROM `days` WHERE `eventid`=:e"; */
+					/* try { */
+					/* 	$res = $db->query($statement, array(':e' => $ev_id )); */
+					/* 	} */
+					/* 	catch(Exception $e) */
+					/* 	{ */
+					/* 			die('Erreur : '.$e->getMessage()); */
+					/* 	} */
+
+					/* } */
 				/* 	delete group */
 					$statement = "DELETE FROM `groups` WHERE `id`=:g";
 					try {
@@ -324,8 +341,8 @@ switch($a) {
 							die('Erreur : '.$e->getMessage());
 					}
 
-				/* 	unset($_GET); */
-				/* 	include('../pages/tools/preferences'); */
+					unset($_GET);
+					include('../pages/tools/preferences');
 					}
 			}
 		}

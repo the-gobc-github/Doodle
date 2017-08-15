@@ -78,9 +78,11 @@ if (isset($_SESSION['login'])) {
 			echo "<div class='submenu-mng_grp'>
 			<ul>
 				<li><a href='index.php?p=preferences&a=add_friend'>Ajouter un membre</a></li>
+				<li><a href='index.php?p=preferences&a=add_friend'>Créer un évenement</a></li>
 				<li><a href='index.php?p=preferences&a=delete_mbr'>Supprimer un membre</a></li>
 				<li><a href='index.php?p=preferences&a=delete_grp'>Supprimer un groupe</a></li>
-				<li><a href='index.php?p=preferences&a=rename_grp'>Rennomer un groupe</a></li>
+				<li><a href='index.php?p=preferences&a=rename_grp'>Renommer un groupe</a></li>
+				<li><a href='index.php?p=preferences&a=rename_grp'>Quitter un groupe</a></li>
 			</ul>
 			</div>";
 			break;

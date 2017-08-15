@@ -107,7 +107,7 @@ id int(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(200) NOT NULL,
 admin VARCHAR(200) NOT NULL,
 members VARCHAR(200) NOT NULL,
-events VARCHAR(200) NOT NULL
+eventlist VARCHAR(200) NOT NULL
 )";
 
 if (mysqli_query($connection, $statement))
