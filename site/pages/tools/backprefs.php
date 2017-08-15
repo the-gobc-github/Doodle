@@ -107,7 +107,7 @@ switch($a) {
 				$statement = "SELECT `grouplist` FROM `users` WHERE `id`='$member_id'";
 				$res = $db->query($statement);
 				$grouplist = array_pop(array_values($res))->grouplist;
-				var_dump($grouplist);
+				/* var_dump($grouplist); */
 
 				$parts = explode(',', $grouplist);
 				/* var_dump($parts); */
@@ -157,8 +157,8 @@ switch($a) {
 							die('Erreur : '.$e->getMessage());
 					}
 
-					/* unset($_GET); */
-					/* include('../pages/tools/preferences'); */
+					unset($_GET);
+					include('../pages/tools/preferences');
 				}
 			else {
 				echo 'Aucun de vos groupe ne possède ce nom';
@@ -168,5 +168,101 @@ switch($a) {
 
 		break;
 
+	case 'del_mbr':
+
+		if (isset($_SESSION['login'])) {
+			if ((isset($_POST['group-name'])) && (isset($_POST['del-member']))) {
+				$member = $_SESSION['login'];
+				$group = $_POST['group-name'];
+				$friend = $_POST['del-member'];
+				#
+				#get member id
+				$statement = "SELECT `id` FROM `users` WHERE `login`='$member'";
+				$res = $db->query($statement);
+				$member_id = array_pop(array_values($res))->id;
+				#
+				/* #get member's groups */
+				$statement = "SELECT `grouplist` FROM `users` WHERE `id`='$member_id'";
+				$res = $db->query($statement);
+				$grouplist = array_pop(array_values($res))->grouplist;
+				var_dump($grouplist);
+
+				$parts = explode(',', $grouplist);
+				/* var_dump($parts); */
+				$group_id = False;
+				foreach($parts as $value) {
+					$statement = "SELECT `admin` FROM `groups` WHERE `name`='$group' AND `id`='$value'";
+					$res = $db->query($statement);
+					$admin_id = array_pop(array_values($res))->admin;
+					if ($admin_id == $member_id) {
+					$group_id = $value;
+						}
+					}
+
+				if ($group_id != False) {
+					#get friend id
+					$statement = "SELECT `id` FROM `users` WHERE `login`='$friend'";
+					$res = $db->query($statement);
+					$friend_id = array_pop(array_values($res))->id;
+					#
+					#del friend from group
+					$statement = "SELECT `members` FROM `groups` WHERE `id`='$group_id'";
+					$res = $db->query($statement);
+					$mbrs_list = array_pop(array_values($res))->members;
+					$mbr_arr = explode(',',$mbrs_list);
+					$new_list = '';
+					foreach ($mbr_arr as $value) {
+						if (($value != $friend_id) && ($value!='')){
+							$new_list .= $value	. ',';
+						}
+					}
+					var_dump($new_list);
+
+					$statement = "UPDATE groups SET members = :f WHERE id='$group_id'";
+					try {
+					$res = $db->query($statement, array(':f' => $new_list ));
+					}
+					catch(Exception $e)
+					{
+							die('Erreur : '.$e->getMessage());
+					}
+
+				/* 	#add user association */
+					$statement = "SELECT `grouplist` FROM `users` WHERE `id`='$friend_id'";
+					$res = $db->query($statement);
+					$grp_list = array_pop(array_values($res))->grouplist;
+
+					$grp_arr = explode(',',$grp_list);
+					$new_list = '';
+					foreach ($grp_arr as $value) {
+						if (($value != $group_id) && (!(empty($value)))) {
+							$new_list .= $value	. ',';
+						}
+					}
+					var_dump($new_list);
+
+					$statement = "UPDATE users SET grouplist = :f WHERE id='$friend_id'";
+					try {
+					$res = $db->query($statement, array(':f' => $new_list ));
+					}
+					catch(Exception $e)
+					{
+							die('Erreur : '.$e->getMessage());
+					}
+
+					unset($_GET);
+					include('../pages/tools/preferences');
+					}
+			}
+		}
+		break;
+
+	case 'delete_grp':
+
+		break;
+
+	case 'rename_grp':
+
+		break;
 }
 ?>

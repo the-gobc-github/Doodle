@@ -5,7 +5,6 @@ if (isset($_SESSION['login'])) {
 			<ul>
 				<li><a href='index.php?p=preferences&a=prf_friends'>Mes amis</a></li>
 				<li><a href='index.php?p=preferences&a=prf_groups'>Mes groupes</a></li>
-				<li><a href='index.php?p=preferences&a=prf_account'>Mon compte</a></li>
 				<li><a href='index.php?p=preferences&a=disconnect'>Deconnexion</a></li>
 			</ul>
 			</div>";
@@ -85,15 +84,34 @@ if (isset($_SESSION['login'])) {
 			</ul>
 			</div>";
 			break;
-			case 'disconnect':
-				unset($_SESSION['login']);
-				include('../home.php');
-				break;
-		/* } */
+
+	case 'delete_mbr':
+		echo "<form class='form-horizontal' method='post' action='?p=backprefs&a=del_mbr' class='search'>
+			<fieldset>
+			<div class='form-group'>
+				<label class='control-label' for=del-member>Supprimez un ami de l'un de vos groupe :</label>
+				<input type='text' name='del-member' id='del-member' size='30' />
+			</div>
+			<div class='form-group'>
+				<label class='control-label' for=group-name>Dans quel groupe ?:</label>
+				<input type='text' name='group-name' id='group-name' size='30' />
+			</div>
+			<div class='form-group'>
+			<input class='btn-primary btn' type='submit' value='Valider' class='valider' />
+			</div>
+			</fieldset>
+			</form>";
+			break;
+
+	case 'disconnect':
+			unset($_SESSION['login']);
+			include('../home.php');
+			break;
+
 	}
 }
 
-if (!(isset($_SESSION['login']))) {
+else  {
 	$content = $user_form->form_connexion();
 	echo $content;
 }
