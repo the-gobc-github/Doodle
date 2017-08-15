@@ -78,11 +78,11 @@ if (isset($_SESSION['login'])) {
 			echo "<div class='submenu-mng_grp'>
 			<ul>
 				<li><a href='index.php?p=preferences&a=add_friend'>Ajouter un membre</a></li>
-				<li><a href='index.php?p=preferences&a=add_friend'>Créer un évenement</a></li>
+				<li><a href='index.php?p=preferences&a=create_event'>Créer un évenement</a></li>
 				<li><a href='index.php?p=preferences&a=delete_mbr'>Supprimer un membre</a></li>
 				<li><a href='index.php?p=preferences&a=delete_grp'>Supprimer un groupe</a></li>
 				<li><a href='index.php?p=preferences&a=rename_grp'>Renommer un groupe</a></li>
-				<li><a href='index.php?p=preferences&a=rename_grp'>Quitter un groupe</a></li>
+				<li><a href='index.php?p=preferences&a=quit_grp'>Quitter un groupe</a></li>
 			</ul>
 			</div>";
 			break;
@@ -120,6 +120,41 @@ if (isset($_SESSION['login'])) {
 			</form>";
 		break;
 
+	case 'rename_grp':
+
+			echo "<form class='form-horizontal' method='post' action='?p=backprefs&a=rename' class='search'>
+				<fieldset>
+				<div class='form-group'>
+					<label class='control-label' for=new-name>Donnez un nouveau nom à votre groupe :</label>
+					<input type='text' name='new-name' id='new-name' size='30' />
+				</div>
+				<div class='form-group'>
+					<label class='control-label' for=group-name>Quel groupe souhaitez-vous modifier ?:</label>
+					<input type='text' name='group-name' id='group-name' size='30' />
+				</div>
+				<div class='form-group'>
+				<input class='btn-primary btn' type='submit' value='Valider' class='valider' />
+				</div>
+				</fieldset>
+				</form>";
+			break;
+
+	case 'quit_grp':
+
+		echo "<form class='form-horizontal' method='post' action='?p=backprefs&a=q_grp' class='search'>
+			<fieldset>
+			<div class='form-group'>
+				<label class='control-label' for='group-name'>Quel groupe voulez vous quitter ?</label>
+				<input type='text' name='group-name' id='group-name' size='30' />
+			</div>
+			<div class='form-group'>
+			<input class='btn-primary btn' type='submit' value='Valider' class='valider' />
+			</div>
+			</fieldset>
+			</form>";
+		break;
+
+	break;
 	case 'disconnect':
 			unset($_SESSION['login']);
 			include('../home.php');
