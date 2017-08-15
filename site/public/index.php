@@ -23,8 +23,9 @@ function includeFile($file, $variables) {
 function includeFileWithVariables($fileName, $variablesArray) {
 	/* Example :
 	/* includeFileWithVariables("index.php",array('p'=>'calendar')); */
-   extract($variablesArray);
-   include($fileName);
+		extract($variablesArray);
+	#will send variable $p
+		include($fileName);
 }
 $db = new \App\Database('doodle_db');
 $user_form = new \App\Form();

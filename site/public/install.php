@@ -13,7 +13,7 @@ if (isset($_GET['delete'])) {
 		if (mysqli_query($connection, $sql))
 			echo "Database successfully destroy";
 		else
-			echo "DataBase destruction fail ".mysqli_error($connection); 
+			echo "DataBase destruction fail ".mysqli_error($connection);
 }
 
 if (isset($_GET['name'])) {
@@ -139,19 +139,19 @@ else
 	echo "\n";
 }
 
-$statement = "INSERT INTO `users` (`id`, `login`, `password`, `email`, `cle`, 
-`grouplist`, `valid`) VALUES (NULL, 'a', 'a', 'a', 'a', 'a', '1'),
-							(NULL, 'b', 'b', 'b', 'b', '1', '1'),
-							(NULL, 'c', 'c', 'c', 'c', '1', '1'),
-							(NULL, 'd', 'd', 'd', 'd', '1', '1'),
-							(NULL, 'e', 'e', 'e', 'e', '1', '1'),
-							(NULL, 'f', 'f', 'f', 'f', '2', '1'),
-							(NULL, 'g', 'g', 'g', 'g', '2', '1'),
-							(NULL, 'h', 'h', 'h', 'h', '2', '1'),
-							(NULL, 'i', 'i', 'i', 'i', '2', '1'),
-							(NULL, 'j', 'j', 'j', 'j', '2', '1'),
-							(NULL, 'k', 'k', 'k', 'k', '2', '1'),
-							(NULL, 'l', 'l', 'l', 'l', '2', '1')";
+$statement = "INSERT INTO `users` (`id`, `login`, `password`, `email`, `cle`,
+`grouplist`, `valid`) VALUES (NULL, 'a', 'a', 'a', 'a', '1,', '1'),
+							(NULL, 'b', 'b', 'b', 'b', '1,', '1'),
+							(NULL, 'c', 'c', 'c', 'c', '1,', '1'),
+							(NULL, 'd', 'd', 'd', 'd', '1,', '1'),
+							(NULL, 'e', 'e', 'e', 'e', '1,', '1'),
+							(NULL, 'f', 'f', 'f', 'f', '2,', '1'),
+							(NULL, 'g', 'g', 'g', 'g', '2,', '1'),
+							(NULL, 'h', 'h', 'h', 'h', '2,', '1'),
+							(NULL, 'i', 'i', 'i', 'i', '2,', '1'),
+							(NULL, 'j', 'j', 'j', 'j', '2,', '1'),
+							(NULL, 'k', 'k', 'k', 'k', '2,', '1'),
+							(NULL, 'l', 'l', 'l', 'l', '2,', '1')";
 
 if (mysqli_query($connection, $statement))
 {
@@ -167,7 +167,7 @@ else
 }
 
 
-$statement = "INSERT INTO `groups` (`id`, `name`, `admin`, `members`) VALUES (NULL, 'group1', '1', '1,2,3,4'), (NULL, 'group2', '5', '5,6,7,8,9,10,11')";
+$statement = "INSERT INTO `groups` (`id`, `name`, `admin`, `members`) VALUES (NULL, 'group1', '1', '1,2,3,4,'), (NULL, 'group2', '5', '5,6,7,8,9,10,11,')";
 
 if (mysqli_query($connection, $statement))
 {

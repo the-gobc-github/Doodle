@@ -12,7 +12,7 @@
               <a href="index.php?p=home"><img id="logo" src="../img/logo.png"></a>
               <a href="index.php?p=preferences"><img id="logo_prefs" src="../img/logo_prefs.png"></a>
         <?php
-          if ($_SESSION['login'] === NULL)
+          if (!(isset($_SESSION['login'])))
           {
             $connection = $user_form->form_connexion();
             echo $connection;

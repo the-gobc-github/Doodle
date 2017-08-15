@@ -8,13 +8,13 @@ switch ($a) {
     case 'connexion':
 		if ($_POST['login'] != NULL && $_POST['password'] != NULL)		{
 				$login = $_POST['login'];
-				$password = md5($_POST['password']);
+				/* $password = md5($_POST['password']); */
+				$password = $_POST['password'];
 				$datas = $db->query('SELECT * FROM users WHERE
 				(login = :login AND password = :password)',
 				['login' => $login, 'password' => $password])->fetch();
 				if ($datas[0]) {
-					#data[5] == 1 for mail association.. set to zero temporary
-					if($datas[5] == 0){
+					if($datas[6] == 1){
 							$_SESSION['login'] = $login;
 							include('../pages/calendar.php');
 					}
@@ -36,10 +36,11 @@ switch ($a) {
 			if($_POST['login'] != NULL AND $_POST['password'] != NULL AND $_POST['password_confirm'] != NULL  AND  $_POST['password'] == $_POST['password_confirm'])
 			{
 					$login = $_POST['login'];
-					$password = md5($_POST['password']);
+					/* $password = md5($_POST['password']); */
+					$password = $_POST['password'];
 					$email = $_POST['email'];
 					$cle = md5(microtime(TRUE)*100000);
-					$valid = 0;
+					$valid = 1;
 					try {
 							$res = $db->query('INSERT INTO users (login, cle, email, password, valid) VALUES(:login, :cle, :email, :password, :valid)', array(
 									':login' => $login,
