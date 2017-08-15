@@ -257,7 +257,78 @@ switch($a) {
 		}
 		break;
 
-	case 'delete_grp':
+	case 'del_grp':
+
+		if (isset($_SESSION['login'])) {
+			if ((isset($_POST['group-name'])))  {
+				$member = $_SESSION['login'];
+				$group = $_POST['group-name'];
+				#
+				#get member id
+				$statement = "SELECT `id` FROM `users` WHERE `login`='$member'";
+				$res = $db->query($statement);
+				$member_id = array_pop(array_values($res))->id;
+				#
+				/* #get member's groups */
+				$statement = "SELECT `grouplist` FROM `users` WHERE `id`='$member_id'";
+				$res = $db->query($statement);
+				$grouplist = array_pop(array_values($res))->grouplist;
+				var_dump($grouplist);
+
+				$parts = explode(',', $grouplist);
+				/* var_dump($parts); */
+				$group_id = False;
+				foreach($parts as $value) {
+					$statement = "SELECT `admin` FROM `groups` WHERE `name`='$group' AND `id`='$value'";
+					$res = $db->query($statement);
+					$admin_id = array_pop(array_values($res))->admin;
+					if ($admin_id == $member_id) {
+					$group_id = $value;
+						}
+					}
+
+				if ($group_id != False) {
+					#del group from user
+					$statement = "SELECT `members` FROM `groups` WHERE `id`='$group_id'";
+					$res = $db->query($statement);
+					$grp_mbr = array_pop(array_values($res))->members;
+					$mbr_arr = explode(',',$grp_mbr);
+					foreach ($mbr_arr as $mbr_id) {
+						$statement = "SELECT `grouplist` FROM `users` WHERE `id`='$mbr_id'";
+						$res = $db->query($statement);
+						$grp_list = array_pop(array_values($res))->grouplist;
+						$grp_arr = explode(',',$grp_list);
+						$new_list = '';
+						foreach ($grp_arr as $value) {
+							if (($value != $group_id) && ($value!='')){
+								$new_list .= $value	. ',';
+							}
+						}
+						$statement = "UPDATE users SET grouplist = :g WHERE id='$mbr_id'";
+						try {
+						$res = $db->query($statement, array(':g' => $new_list ));
+						}
+						catch(Exception $e)
+						{
+								die('Erreur : '.$e->getMessage());
+						}
+
+					}
+				/* 	delete group */
+					$statement = "DELETE FROM `groups` WHERE `id`=:g";
+					try {
+					$res = $db->query($statement, array(':g' => $group_id));
+					}
+					catch(Exception $e)
+					{
+							die('Erreur : '.$e->getMessage());
+					}
+
+				/* 	unset($_GET); */
+				/* 	include('../pages/tools/preferences'); */
+					}
+			}
+		}
 
 		break;
 

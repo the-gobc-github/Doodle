@@ -103,6 +103,21 @@ if (isset($_SESSION['login'])) {
 			</form>";
 			break;
 
+	case 'delete_grp':
+
+		echo "<form class='form-horizontal' method='post' action='?p=backprefs&a=del_grp' class='search'>
+			<fieldset>
+			<div class='form-group'>
+				<label class='control-label' for='group-name'>Donnez le nom du groupe à supprimer !</label>
+				<input type='text' name='group-name' id='group-name' size='30' />
+			</div>
+			<div class='form-group'>
+			<input class='btn-primary btn' type='submit' value='Valider' class='valider' />
+			</div>
+			</fieldset>
+			</form>";
+		break;
+
 	case 'disconnect':
 			unset($_SESSION['login']);
 			include('../home.php');

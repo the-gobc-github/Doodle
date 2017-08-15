@@ -167,7 +167,7 @@ else
 }
 
 
-$statement = "INSERT INTO `groups` (`id`, `name`, `admin`, `members`) VALUES (NULL, 'group1', '1', '1,2,3,4,'), (NULL, 'group2', '5', '5,6,7,8,9,10,11,')";
+$statement = "INSERT INTO `groups` (`id`, `name`, `admin`, `members`) VALUES (NULL, 'group1', '1', '1,2,3,4,5,'), (NULL, 'group2', '6', '6,7,8,9,10,11,')";
 
 if (mysqli_query($connection, $statement))
 {
