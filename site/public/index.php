@@ -16,7 +16,7 @@ else {
 function includeFile($file, $variables) {
 	/* $variables which are defined in this function are used as params for the url
 	 /* * If you want more than one variable to be visible from the included file, */
-		/* * you can pass an array...*/
+	/*you can pass an array...*/
     include($file);
 }
 
@@ -48,3 +48,4 @@ if ($p == 'preferences')
 	require '../pages/preferences.php';
 $content = ob_get_clean();
 require '../pages/templates/default.php';
+?>

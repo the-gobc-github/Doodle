@@ -154,11 +154,15 @@ if (isset($_SESSION['login'])) {
 			</form>";
 		break;
 
-	break;
+	/* case 'create_event' : */
+
+	/* break; */
+
+
 	case 'disconnect':
-			unset($_SESSION['login']);
-			include('../home.php');
-			break;
+		unset($_SESSION['login']);
+		include('../home.php');
+		break;
 
 	}
 }
