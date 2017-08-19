@@ -107,7 +107,7 @@ id int(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(200) NOT NULL,
 admin VARCHAR(200) NOT NULL,
 members VARCHAR(200) NOT NULL,
-events VARCHAR(200) NOT NULL
+eventlist VARCHAR(200) NOT NULL
 )";
 
 if (mysqli_query($connection, $statement))
@@ -167,7 +167,7 @@ else
 }
 
 
-$statement = "INSERT INTO `groups` (`id`, `name`, `admin`, `members`) VALUES (NULL, 'group1', '1', '1,2,3,4,'), (NULL, 'group2', '5', '5,6,7,8,9,10,11,')";
+$statement = "INSERT INTO `groups` (`id`, `name`, `admin`, `members`) VALUES (NULL, 'group1', '1', '1,2,3,4,5,'), (NULL, 'group2', '6', '6,7,8,9,10,11,')";
 
 if (mysqli_query($connection, $statement))
 {
