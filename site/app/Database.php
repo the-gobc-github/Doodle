@@ -64,6 +64,20 @@ class Database {
     {
         return $this->getPDO()->lastInsertId();
     }
+
+    public function get_calendar($what,$from,$where = false, $value = false) {
+        if ($where) {
+            $prestatement = 'SELECT ' . $what . ' FROM ' . $from;
+            $statement = $prestatement . ' WHERE ' . $where . '=' . "'" . $value . "'";   
+        }
+        else {
+            $statement = 'SELECT ' . $what . ' FROM ' . $from;
+        }
+        $datas = $this->getPDO()->query($statement);
+                        // FETCH_OBJ get the columns names of $datas ?
+        $req = $datas->fetchAll(PDO::FETCH_OBJ);
+        return $req; 
+    }
 }
 
 ?>
