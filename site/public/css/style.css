@@ -3,6 +3,37 @@
 
 }
 
+.main {
+    display: flex;
+}
+
+.menu {
+    background-color: #D7CCC8;
+    flex-grow: 1;
+    margin-right: 60px;
+}
+
+.menu a.active {
+    background-color: #BCAAA4; /* Add a green color to the "active/current" link */
+    color: white;
+    height: 30px;
+}
+
+
+.menu a:hover {
+    background-color: #A1887F; /* Dark grey background on mouse-over */
+}
+
+.menu a {
+    display: flex;
+    flex-direction: column;
+    height: 40px;
+}
+
+.calendar {
+    flex-grow: 1;
+}
+
 .navbar {
     background-color: black;
 }
@@ -48,7 +79,10 @@ label {
     width: 190px;
 }
 
+td:hover {
+    background-color: #A1887F; /* Dark grey background on mouse-over */
 
+}
 
 .main_box {
     margin: 0 auto;

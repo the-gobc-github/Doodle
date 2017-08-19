@@ -1,5 +1,6 @@
 <!-- <div class="main_box"> -->
 <?php
+
 if (isset($_SESSION['login'])) {
 	include('calendar.php');
 	unset($_GET);

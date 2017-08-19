@@ -1,9 +1,26 @@
 <?php
+  $login = $_SESSION['login'];
   $year = date('Y');
   $dates = $date->getAllDays($year);
-
+  $userobj = $db->get_calendar("*", "users", "login", $login);
+  $decode = json_decode(json_encode($userobj), true);
+  $grouplist = $decode[0]['grouplist'];
+  $grouparray = explode(',', $grouplist);
+  
+?>
+<div class="main">
+<div class="menu">
+<a href="#" class="active">Groups</a>
+<?php foreach ($grouparray as $value) {
+  ?>
+  <a href="#">Link <?php echo $value;?></a>
+<?php
+}
 ?>
 
+
+</div>
+<div class="calendar">
 <div class="periods">
   <div class="year">
     <?php echo $year ?>
@@ -49,6 +66,8 @@
       </table>
     </div>
 <?php endforeach;?>
+</div>
+</div>
 </div>
 <?php
 include('../app/js/calendar.js');
