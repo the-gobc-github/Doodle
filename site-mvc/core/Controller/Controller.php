@@ -9,6 +9,7 @@ class Controller{
 
 	public function isconnected(){
 		return isset($_SESSION['login']);
+
 	}
 
 	public function render($view, $variables = []){

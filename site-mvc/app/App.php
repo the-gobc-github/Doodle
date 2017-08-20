@@ -12,7 +12,7 @@ class App {
     private $host;
     private $pdo;
 
-    public function __construct($db_name, $db_user = 'root', $pass = 'root', $host= 'localhost') {
+    public function __construct($db_name = 'doodle_db', $db_user = 'root', $pass = 'root', $host= 'localhost') {
         $this->db_name = $db_name;
         $this->db_user = $db_user;
         $this->pass = $pass;
@@ -41,7 +41,15 @@ class App {
     {
         if ($params)
         {
+
+			#PROLEM HERE
+			#TRY TO do 2 different queries
+			echo 'go';
+			echo $query;
+			var_dump($params);
             $req = $this->getPDO()->prepare($query);
+
+			echo 'go';
             $req->execute($params);
         }
         else
