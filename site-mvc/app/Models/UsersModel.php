@@ -9,6 +9,7 @@ class UsersModel extends Model{
 
 	/* protected static $table = 'users'; */
 	protected static $table;
+	/* public $App = new App; */
 
 	public function connexion(){
 
@@ -20,13 +21,11 @@ class UsersModel extends Model{
 				$datas = App::query('SELECT * FROM users WHERE
 				(login = :login AND password = :password)',
 				['login' => $login, 'password' => $password])->fetch();
-
 				/* $where = ['login','password']; */
 				/* $array = [':l' => $login, ':p' => $password]; */
 				/* $res = $this->get_where_and($where,$array)->fetch(); */
 				/* $res = $this->get_where_and($where,$array); */
 				/* var_dump($res); */
-				echo 'ok';
 				if ($datas[0]) {
 					if($datas[6] == 1){
 							$_SESSION['login'] = $login;

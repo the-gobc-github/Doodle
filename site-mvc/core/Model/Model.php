@@ -45,7 +45,7 @@ class Model{
 		echo 'debug... ';
 		$statement = 'SELECT * FROM ' . self::getTable() . ' WHERE (' . $v . ')';
 		echo $statement;
-		$res = App::query($statement,$array);
+		/* $res = App::query($statement,$array); */
 		/* $res = $App->query($statement,$array); */
 		/* $res = $App->query($statement); */
 

@@ -37,11 +37,11 @@ class UsersController extends AppController{
 		$model->connexion();
 		echo ' WIN : ';
 		var_dump($_SESSION['login']);
-		/* if ($this->isconnected()){ */
-		/* 	$this->render('users/home'); */
-		/* } else { */
-		/* 	$this->connexion_form(); */
-		/* } */
+		if ($this->isconnected()){
+			$this->render('users/home');
+		} else {
+			$this->connexion_form();
+		}
 	}
 
 
