@@ -87,7 +87,7 @@ td:hover {
 .main_box {
     margin: 0 auto;
     width: 400px;
-    border: 8px solid black;
+    /* border: 8px solid black; */
     background-color: white;
 }
 

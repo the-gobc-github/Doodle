@@ -17,21 +17,15 @@ class UsersModel extends Model{
 				$login = $_POST['login'];
 		/* 		/1* $password = md5($_POST['password']); *1/ */
 				$password = $_POST['password'];
-
 				$datas = App::query('SELECT * FROM users WHERE
 				(login = :login AND password = :password)',
 				['login' => $login, 'password' => $password])->fetch();
-				/* $where = ['login','password']; */
-				/* $array = [':l' => $login, ':p' => $password]; */
-				/* $res = $this->get_where_and($where,$array)->fetch(); */
-				/* $res = $this->get_where_and($where,$array); */
-				/* var_dump($res); */
 				if ($datas[0]) {
 					if($datas[6] == 1){
 							$_SESSION['login'] = $login;
-					} else {echo 'no admin';}
+					} else {echo 'vous n\'avez pas valider votre compte';}
 				}
-				} else { echo 'mdr';}
+				} else { echo 'login ou pwd';}
 		}
 }
 

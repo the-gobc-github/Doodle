@@ -31,12 +31,8 @@ class UsersController extends AppController{
 
 	public function connexion(){
 
-		echo 'connexion ';
 		$model = new UsersModel();
-		var_dump($_SESSION['login']);
 		$model->connexion();
-		echo ' WIN : ';
-		var_dump($_SESSION['login']);
 		if ($this->isconnected()){
 			$this->render('users/home');
 		} else {
