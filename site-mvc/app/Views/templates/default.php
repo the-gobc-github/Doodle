@@ -14,9 +14,7 @@
         <?php
           if ($_SESSION['login'] === NULL)
           {
-            /* $connection = $user_form->form_connexion(); */
-            /* echo $connection; */
-			echo $content;
+			         // echo $content;
           }
         ?>
       </nav>

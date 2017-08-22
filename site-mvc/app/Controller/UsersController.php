@@ -8,10 +8,10 @@ use App\Models\UsersModel;
 class UsersController extends AppController{
 /* class UsersController { */
 
-	public function home(){
+	public function calendar(){
 		#This should be in CalendarController
 		if ($this->isconnected()) {
-			$this->render('users/home');
+			$this->render('users/calendar');
 		}
 		else {
 			$this->connexion_form();
@@ -21,7 +21,7 @@ class UsersController extends AppController{
 	public function connexion_form(){
 
 		if ($this->isconnected()){
-			$this->render('users/home');
+			$this->render('users/calendar');
 		} else {
 			$name_field	= 'login';
 			$pwd_fied = 'password';
@@ -34,7 +34,7 @@ class UsersController extends AppController{
 		$model = new UsersModel();
 		$model->connexion();
 		if ($this->isconnected()){
-			$this->render('users/home');
+			$this->render('users/calendar');
 		} else {
 			$this->connexion_form();
 		}
@@ -46,4 +46,3 @@ class UsersController extends AppController{
 
 
 ?>
-
