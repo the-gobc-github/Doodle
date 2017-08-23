@@ -1,9 +1,10 @@
 <?php
 session_start();
 echo $_SERVER['SCRIPT_NAME'];
-define('ROOT', str_replace('/doodlemvc2/site-mvc/public/index.php','..',$_SERVER['SCRIPT_NAME']));
+define('ROOT', str_replace('/doomvc/site-mvc/public/index.php','..',$_SERVER['SCRIPT_NAME']));
+// define('ROOT', str_replace('/public/index.php','..',$_SERVER['SCRIPT_NAME']));
 
-
+echo "==============================" . ROOT;
 require(ROOT . '/core/Controller/Controller.php');
 require(ROOT . '/core/Model/Model.php');
 require '../app/Autoloader.php';
