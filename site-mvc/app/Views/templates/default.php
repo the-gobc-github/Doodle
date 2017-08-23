@@ -9,14 +9,14 @@
 </head>
   <body>
         <nav class="navbar navbar-default">
-              <a href="index.php?p=home"><img id="logo" src="../img/logo.png"></a>
-              <a href="index.php?p=preferences"><img id="logo_prefs" src="../img/logo_prefs.png"></a>
+              <a href="index.php?p=users/calendar"><img id="logo" src="../img/logo.png"></a>
+              <a href="index.php?p=users/preferences"><img id="logo_prefs" src="../img/logo_prefs.png"></a>
         <?php
           if ($_SESSION['login'] === NULL)
           {
             /* $connection = $user_form->form_connexion(); */
             /* echo $connection; */
-			echo $content;
+			/* echo $content; */
           }
         ?>
       </nav>

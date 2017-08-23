@@ -1,4 +1,5 @@
 <?php
+session_start();
 echo $_SERVER['SCRIPT_NAME'];
 define('ROOT', str_replace('/public/index.php','..',$_SERVER['SCRIPT_NAME']));
 
@@ -12,15 +13,14 @@ if(isset($_GET['p'])) {
     $page = $_GET['p'];
 }
 else {
-    $page = 'users/home';
+    $page = 'users/calendar';
 }
 
 $page = explode('/',$page);
 $action = $page[1];
 $controller = '\App\Controller\\' . ucfirst($page[0]) . 'Controller';
+
 $controller = new $controller();
-echo 'prout';
-/* echo 'controller '. $controller . ' loaded '; */
 $controller->$action();
 
 ?>

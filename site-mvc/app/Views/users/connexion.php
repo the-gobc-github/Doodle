@@ -14,7 +14,7 @@ echo "
                 </div>
                 <input class='btn btn-primary' type='submit' name='connexion' value='Sign in'>
                 </br></br>
-      					<label class='pull-right' style='margin-right: 90px' ><a style='text-decoration:none' href='?p=home&a=change_pwd'>Forgot your password?</a></label>
+      					<label class='pull-right' style='margin-right: 90px' ><a style='text-decoration:none' href='?p=users/inscription'>Forgot your password?</a></label>
       </form>
       </div>";
 ?>

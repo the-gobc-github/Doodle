@@ -8,6 +8,11 @@ class Model{
 
 	protected static $table;
 
+	public function __construct(){
+
+		session_start();
+	}
+
 	private static function getTable(){
 
 		if (self::$table == null) {
