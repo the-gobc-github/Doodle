@@ -69,6 +69,17 @@ class UsersController extends AppController{
 
 	public function preferences() {
 
+	if ($this->isconnected()){
+			if (!(isset($_GET['a']))) {
+				$this->render('users/preferences');
+			} else {
+				$a = $_GET['a'];
+				$this->render('users/' . $a);
+			}
+		} else {
+			$this->connexion_form();
+		}
+
 	}
 
 
