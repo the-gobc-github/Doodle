@@ -1,0 +1,4 @@
+<?
+
+echo 'quit group';
+?>

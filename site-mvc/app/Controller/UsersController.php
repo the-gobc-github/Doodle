@@ -82,6 +82,62 @@ class UsersController extends AppController{
 
 	}
 
+	public function add_friend() {
+
+		if ($this->isconnected()){
+			echo 'add friend';
+		}
+	}
+
+	public function create_group() {
+
+		if ($this->isconnected()){
+			echo 'create group';
+		}
+	}
+	public function add_mbr() {
+
+		if ($this->isconnected()){
+			echo 'add member';
+		}
+	}
+	public function create_event() {
+
+		if ($this->isconnected()){
+			echo 'create event';
+		}
+	}
+	public function delete_mbr() {
+
+		if ($this->isconnected()){
+			echo 'delete mbr';
+		}
+	}
+
+	public function delete_grp() {
+
+		if ($this->isconnected()){
+			echo 'delete group';
+		}
+	}
+	public function rename_grp() {
+
+		if ($this->isconnected()){
+			echo 'rename group';
+		}
+	}
+	public function quit_grp() {
+
+		if ($this->isconnected()){
+			echo 'quit group';
+		}
+	}
+
+	public function disconnect(){
+		unset($_SESSION['login']);
+		$this->connexion_form();
+	}
+
 
 }
 
