@@ -22,6 +22,7 @@ else {
 $page = explode('/',$page);
 $action = $page[1];
 $controller = '\App\Controller\\' . ucfirst($page[0]) . 'Controller';
+$tools = new Tools;
 
 echo 'ok';
 $controller = new $controller();

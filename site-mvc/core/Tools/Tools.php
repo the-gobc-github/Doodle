@@ -10,7 +10,7 @@ class Tools {
         $tmp .=  "<input type=text name=$value></input>";
         $ret .= $tmp;
       }
-      $form = "<form class=$class method='post' action=?p=$action>";
+      $form = "<form class=$class method='post' action=?p='$action'>";
       $form .= $ret . "<br><br><input type='submit'>";
       $form .= "</form><br>";
       return $form;
