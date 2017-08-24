@@ -6,8 +6,8 @@ define('ROOT', str_replace('/public/index.php','..',$_SERVER['SCRIPT_NAME']));
 
 require(ROOT . '/core/Controller/Controller.php');
 require(ROOT . '/core/Model/Model.php');
-require '../app/Autoloader.php';
-require '../core/Tools/Tools.php';
+require(ROOT . '/app/Autoloader.php');
+require(ROOT . '/core/Tools/Tools.php');
 
 App\Autoloader::register();
 
@@ -22,11 +22,9 @@ else {
 $page = explode('/',$page);
 $action = $page[1];
 $controller = '\App\Controller\\' . ucfirst($page[0]) . 'Controller';
-$tools = new Tools;
-
-echo 'ok';
+echo ' => controller creation...     ';
 $controller = new $controller();
-echo 'ok';
+echo 'controller created !    ';
 $controller->$action();
 
 ?>

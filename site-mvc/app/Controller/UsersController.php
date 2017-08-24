@@ -24,8 +24,10 @@ class UsersController extends AppController{
 			$this->render('users/calendar');
 		} else {
 			$name_field	= 'login';
-			$pwd_fied = 'password';
-			$this->render('users/connexion',compact('name_field','pwd_field'));
+			$pwd_field = 'password';
+			$ref_field = '?p=users/inscription';
+			$text_field = 'Inscris toi !';
+			$this->render_form('users/connexion',compact('name_field','pwd_field'),compact('ref_field','text_field'));
 		}
 	}
 
@@ -36,10 +38,10 @@ class UsersController extends AppController{
 			$this->render('users/calendar');
 		} else {
 			$name_field	= 'login';
-			$pwd_fied = 'email';
-			$pwd_fied = 'password';
-			$pwd_fied = 'password_confirm';
-			$this->render('users/inscription',compact('name_field','email_field','pwd_field','pwd_conf_field'));
+			$email_field = 'email';
+			$pwd_field = 'password';
+			$pwd_conf_field = 'password_confirm';
+			$this->render_form('users/inscription',compact('name_field','email_field','pwd_field','pwd_conf_field'));
 		}
 	}
 
@@ -70,11 +72,13 @@ class UsersController extends AppController{
 	public function preferences() {
 
 	if ($this->isconnected()){
-			if (!(isset($_GET['a']))) {
-				$this->render('users/preferences');
+
+		$a = $_GET['a']; #frontend action
+		if (isset($_GET['a'])){
+			echo ' prefs action is : ' . $a . ' ';
+			$this->render('users/' . $a);
 			} else {
-				$a = $_GET['a'];
-				$this->render('users/' . $a);
+				$this->render('users/preferences');
 			}
 		} else {
 			$this->connexion_form();

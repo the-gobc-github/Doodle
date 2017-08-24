@@ -1,20 +1,32 @@
 <?php
 
+namespace Core\Tools;
+
 class Tools {
 
-    public function insert_form($args = array(), $class="formclass", $action="#") {
+    public function display_form($args = array(), $class="form-inline", $action="#",$label= False,$id='default', $button='default', $blabel='send') {
       $ret = "";
       $tmp = "";
       foreach ($args as $key => $value) {
-        $tmp = "<br>$value:<br>";
-        $tmp .=  "<input type=text name=$value></input>";
+        $tmp = "<div class='form-group'>";
+        $tmp .=  "<input type='text' class='pull-right' placeholder='" . ucfirst($value) . "' name='$value' 'name:$value'/>";
+		$tmp .= "</div>";
         $ret .= $tmp;
       }
-      $form = "<form class=$class method='post' action=?p='$action'>";
-      $form .= $ret . "<br><br><input type='submit'>";
-      $form .= "</form><br>";
+      $form = "<form class='$class' method='post' action='?p=$action' id='$id'>";
+	  $form .= $ret . "<input class='btn btn-primary' type='submit' name='$button' value='$blabel'>";
+      $form .= "</br></br>";
+	  if ($label != False) {
+		  $form .= $this->add_label($label);
+	  }
       return $form;
     }
+
+	public function add_label($params){
+		$ref = $params['ref_field'];
+		$text = $params['text_field'];
+    	return "<label class='pull-right' style='margin-right: 90px' ><a style='text-decoration:none' href='$ref'>" . $text . "</a></label>";
+	}
 
     public function test() {
       return "caca";

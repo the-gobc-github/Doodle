@@ -7,7 +7,7 @@ class Form {
     public function form_connexion() {
       $ret = ("
       <div class='pull-right' style='margin-top: 20px'>
-      <form class='form-inline' method='post' action='?p=backform&a=connexion' class='connexion'>
+      <form class='form-inline' method='post' action='?p=backform&a=connexion' id='connexion'>
                 <div class='form-group'>
       	        <input class='form-control' type='text' placeholder='Login'
                           name='login'
