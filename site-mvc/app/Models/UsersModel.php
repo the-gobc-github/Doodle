@@ -21,7 +21,7 @@ class UsersModel extends Model{
 				(login = :login AND password = :password)',
 				['login' => $login, 'password' => $password])->fetch();
 				if ($datas[0]) {
-					if($datas[6] == 1){
+					if($datas[3] == 1){
 							$_SESSION['login'] = $login;
 					} else {echo 'vous n\'avez pas validé votre compte';}
 				}
