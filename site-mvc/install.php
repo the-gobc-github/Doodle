@@ -48,7 +48,8 @@ $connection = mysqli_connect('localhost', 'root', 'root', $database_name);
 $statement = "CREATE TABLE users(
 UserID int(6) AUTO_INCREMENT PRIMARY KEY,
 password VARCHAR(200) NOT NULL,
-login VARCHAR(50) NOT NULL
+login VARCHAR(50) NOT NULL,
+valid int(6) default 1
 );";
 
 if (mysqli_query($connection, $statement))
@@ -56,8 +57,8 @@ if (mysqli_query($connection, $statement))
 else
 		echo "      error creating table user".mysqli_error($connection);
 
-$statement = "INSERT INTO `users` (`UserID`, `login`) VALUES (NULL, 'a'), (NULL, 'b')
-,(NULL, 'c'), (NULL, 'd'),(NULL, 'e'), (NULL, 'f');";
+$statement = "INSERT INTO `users` (`UserID`, `login`, `password`) VALUES (NULL, 'a','a'), (NULL, 'b','b')
+,(NULL, 'c','c'), (NULL, 'd','d'),(NULL, 'e','e'), (NULL, 'f','f');";
 
 if (mysqli_query($connection, $statement))
 		echo "      User ADDED";
