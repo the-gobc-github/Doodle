@@ -86,6 +86,20 @@ class UsersController extends AppController{
 
 	}
 
+	public function prf_friends() {
+
+		if ($this->isconnected()){
+			$name_field	= 'login';
+			$email_field = 'email';
+			$pwd_field = 'password';
+			$pwd_conf_field = 'password_confirm';
+			$this->render_form('users/inscription',compact('name_field','email_field','pwd_field','pwd_conf_field'));
+		} else {
+			$this->render('users/connexion_form');
+			}
+
+	}
+
 	public function add_friend() {
 
 		if ($this->isconnected()){
