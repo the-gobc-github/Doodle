@@ -69,6 +69,7 @@ class UsersController extends AppController{
 		}
 	}
 
+	//PREFERENCES
 	public function preferences() {
 
 	if ($this->isconnected()){
@@ -86,20 +87,19 @@ class UsersController extends AppController{
 
 	}
 
+	//*************** FRIENDS ***************
+	//
+	//ADD FRIEND
 	public function prf_friends() {
 
 		if ($this->isconnected()){
-			$name_field	= 'login';
-			$email_field = 'email';
-			$pwd_field = 'password';
-			$pwd_conf_field = 'password_confirm';
-			$this->render_form('users/inscription',compact('name_field','email_field','pwd_field','pwd_conf_field'));
+			$name_field	= 'friend';
+			$this->render_form('users/add-friend',compact('name_field'));
 		} else {
 			$this->render('users/connexion_form');
 			}
 
 	}
-
 	public function add_friend() {
 
 		if ($this->isconnected()){
@@ -107,11 +107,36 @@ class UsersController extends AppController{
 		}
 	}
 
+
+	//*************** GROUPS ***************
+	//
+	//CREATE GROUP
+	public function create_group_form() {
+
+		if ($this->isconnected()){
+			$name_field	= 'name';
+			$this->render_form('users/create_group',compact('name_field'));
+		} else {
+			$this->render('users/connexion_form');
+			}
+
+	}
 	public function create_group() {
 
 		if ($this->isconnected()){
 			echo 'create group';
 		}
+	}
+
+	//ADD FRIEND
+	public function add_mbr_form() {
+
+		if ($this->isconnected()){
+			$name_field	= 'friendname';
+			$this->render_form('users/add_mbr',compact('name_field'));
+		} else {
+			$this->render('users/connexion_form');
+			}
 	}
 	public function add_mbr() {
 
@@ -119,38 +144,92 @@ class UsersController extends AppController{
 			echo 'add member';
 		}
 	}
+
+	/* //CREATE EVENT */
+	public function create_event_form() {
+
+		if ($this->isconnected()){
+			$name_field	= 'title';
+			$group_field = 'name';
+			$start_field = 'start';
+			$end_field = 'end';
+			$this->render_form('users/create_event',compact('name_field','group_field','start_field','end_field'));
+		} else {
+			$this->render('users/connexion_form');
+			}
+	}
 	public function create_event() {
 
 		if ($this->isconnected()){
 			echo 'create event';
 		}
 	}
+
+	//DELETE MEMBER
+	public function delete_mbr_form() {
+
+		if ($this->isconnected()){
+			$name_field	= 'friendname';
+			$group_field = 'groupname';
+			$this->render_form('users/delete_mbr',compact('group_field','name_field'));
+		} else {
+			$this->render('users/connexion_form');
+			}
+	}
 	public function delete_mbr() {
 
-		if ($this->isconnected()){
-			echo 'delete mbr';
-		}
+		echo 'delete member';
+
 	}
 
+	//DELETE GROUP
+	public function delete_grp_form() {
+
+		if ($this->isconnected()){
+			$name_field	= 'groupname';
+			$this->render_form('users/delete_grp',compact('name_field'));
+		} else {
+			$this->render('users/connexion_form');
+			}
+
+	}
 	public function delete_grp() {
 
+		echo 'delete group';
+	}
+
+	//RENAME GROUP
+	public function rename_grp_form() {
+
 		if ($this->isconnected()){
-			echo 'delete group';
-		}
+			$name_field	= 'name';
+			$new_name_field	= 'new_name';
+			//need to parse new_login
+			$this->render_form('users/rename_grp',compact('name_field','new_name_field'));
+		} else {
+			$this->render('users/connexion_form');
+			}
 	}
 	public function rename_grp() {
+		echo 'rename group';
+	}
+
+	//QUIT GROUP
+	public function quit_grp_form() {
 
 		if ($this->isconnected()){
-			echo 'rename group';
-		}
+			$name_field	= 'groupname';
+			$this->render_form('users/quit_grp',compact('name_field'));
+		} else {
+			$this->render('users/connexion_form');
+			}
 	}
 	public function quit_grp() {
-
-		if ($this->isconnected()){
-			echo 'quit group';
-		}
+		echo 'quit group';
 	}
 
+
+	//DISCONNECT
 	public function disconnect(){
 		unset($_SESSION['login']);
 		$this->connexion_form();

@@ -51,9 +51,9 @@ class App {
         }
         else
         {
-            /* $datas = $this->getPDO()->query($query); */
-						/* // FETCH_OBJ get the columns names of $datas ? */
-            /* $req = $datas->fetchAll(PDO::FETCH_OBJ); */
+            $datas = $this->getPDO()->query($query);
+						// FETCH_OBJ get the columns names of $datas ?
+            $req = $datas->fetchAll(PDO::FETCH_OBJ);
         }
         return $req;
     }

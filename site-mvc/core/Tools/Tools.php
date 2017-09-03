@@ -3,7 +3,7 @@
 namespace Core\Tools;
 
 class Tools {
-  
+
     public function display_form($args = array(), $class="form-inline", $action="#",$label= False,$id='default', $button='default', $blabel='send') {
       $ret = "";
       $tmp = "";

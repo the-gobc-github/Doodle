@@ -3,8 +3,8 @@
 echo "caca";
 session_start();
 echo $_SERVER['SCRIPT_NAME'];
-define('ROOT', str_replace('/doodle/site-mvc/public/index.php','..',$_SERVER['SCRIPT_NAME']));
-// define('ROOT', str_replace('/public/index.php','..',$_SERVER['SCRIPT_NAME']));
+/* define('ROOT', str_replace('/doomvc/site-mvc/public/index.php','..',$_SERVER['SCRIPT_NAME'])); */
+define('ROOT', str_replace('/public/index.php','..',$_SERVER['SCRIPT_NAME']));
 
 require(ROOT . '/core/Controller/Controller.php');
 //
