@@ -3,12 +3,8 @@
 namespace Core\Tools;
 
 class Tools {
-
-<<<<<<< Updated upstream
+  
     public function display_form($args = array(), $class="form-inline", $action="#",$label= False,$id='default', $button='default', $blabel='send') {
-=======
-    public function display_form($args = array(), $class="formclass", $action="#") {
->>>>>>> Stashed changes
       $ret = "";
       $tmp = "";
       foreach ($args as $key => $value) {

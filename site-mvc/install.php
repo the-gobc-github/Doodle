@@ -69,6 +69,7 @@ else
 
 $statement = "CREATE TABLE groups (
     ID int(6)  AUTO_INCREMENT PRIMARY KEY,
+		name VARCHAR(200) NOT NULL,
 		GroupID int(6) NOT NULL ,
     UserID int(6) NOT NULL,
 		CONSTRAINT fk_UserID
@@ -83,7 +84,7 @@ else
 		echo "        error creating table groups".mysqli_error($connection);
 
 
-$statement = "INSERT INTO `groups` (`GroupID`, `UserID`) VALUES ('1', '1'), ('1', '2'),('2', '3'), ('2', '4');";
+$statement = "INSERT INTO `groups` (`GroupID`, `UserID`, `name`) VALUES ('1', '1','first'), ('1', '2','second'),('2', '3','third'), ('2', '4','fourth');";
 
 if (mysqli_query($connection, $statement))
 	echo "        Groups ADDED";
