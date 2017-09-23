@@ -16,10 +16,10 @@ while(date('Y', $date) <= $year)
   $date = strtotime(date('Y-m-d', $date).' + 1 DAY');
 }
 $dates = $r;
-echo $dates;
+/* echo $dates; */
 $grouparray = array('1','2','3');
 $tools = new Tools();
-echo $tools->test();
+/* echo $tools->test(); */
 ?>
 <div class="main">
 <div class="menu">

@@ -10,13 +10,14 @@ class Controller{
 	protected $form = 'form';
 
 	public function isconnected(){
-		return isset($_SESSION['login']);
+		var_dump($_SESSION);
+		return isset($_SESSION['log']);
 
 	}
 
 	public function render($view, $variables = []){
 
-		session_start();
+		/* session_start(); */
 		ob_start();
 		#extract variables to make them available for require
 		extract($variables);
@@ -34,7 +35,7 @@ class Controller{
 	public function render_form($view, $variables = [],$label=False){
 
 		$tools = new Tools();
-		session_start();
+		/* session_start(); */
 		ob_start();
 		#extract variables to make them available for require
 		extract($variables);

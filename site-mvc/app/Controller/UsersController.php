@@ -48,6 +48,8 @@ class UsersController extends AppController{
 	public function connexion(){
 
 		$model = new UsersModel();
+
+		echo 'connexion';
 		$model->connexion();
 		if ($this->isconnected()){
 			$this->render('users/calendar');
@@ -73,15 +75,14 @@ class UsersController extends AppController{
 	public function preferences() {
 
 	if ($this->isconnected()){
-
 		$a = $_GET['a']; #frontend action
 		if (isset($_GET['a'])){
-			echo ' prefs action is : ' . $a . ' ';
 			$this->render('users/' . $a);
 			} else {
 				$this->render('users/preferences');
 			}
 		} else {
+
 			$this->connexion_form();
 		}
 
@@ -232,6 +233,9 @@ class UsersController extends AppController{
 	//DISCONNECT
 	public function disconnect(){
 		unset($_SESSION['login']);
+		session_destroy();
+		echo '      ';
+		var_dump($_SESSION);
 		$this->connexion_form();
 	}
 

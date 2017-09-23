@@ -10,7 +10,7 @@ class Model{
 
 	public function __construct(){
 
-		session_start();
+		/* session_start(); */
 	}
 
 	private static function getTable(){
@@ -33,28 +33,22 @@ class Model{
 	/* 	return $res; */
         /* } */
 
-	public function get_where_and($where,$array){
-
+	public function get_where_and($array){
+		//where is the database column
+		//array is the argument for PDO. It contains key that are used in the query
 		$w_arr = array();
 		$v = '';
 		$cpt = 0;
 		foreach ($array as $key => $value) {
-			$w = $where[$cpt];
 			if ($cpt>0) {
-				$v =  $v . ' AND ' . $w . '=' . $key;
+				$v =  $v . ' AND ' . $key . '= :' . $key;
 			} else {
-				$v = $w . '=' . $key;
+				$v = $key . '= :' . $key;
 			}
 			$cpt+=1;
 		}
-		echo 'debug... ';
 		$statement = 'SELECT * FROM ' . self::getTable() . ' WHERE (' . $v . ')';
-		echo $statement;
-		/* $res = App::query($statement,$array); */
-		/* $res = $App->query($statement,$array); */
-		/* $res = $App->query($statement); */
-
-
+		$res = App::query($statement,$array);
 		return $res;
     }
 

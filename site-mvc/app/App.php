@@ -43,9 +43,7 @@ class App {
 		$pdo = new App;
         if ($params)
         {
-			/* var_dump(self::host); */
             $req = $pdo->getPDO();
-			var_dump($req);
             $req = $pdo->getPDO()->prepare($query);
             $req->execute($params);
         }
