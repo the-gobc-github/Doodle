@@ -232,10 +232,8 @@ class UsersController extends AppController{
 
 	//DISCONNECT
 	public function disconnect(){
-		unset($_SESSION['login']);
 		session_destroy();
-		echo '      ';
-		var_dump($_SESSION);
+		session_start();
 		$this->connexion_form();
 	}
 
