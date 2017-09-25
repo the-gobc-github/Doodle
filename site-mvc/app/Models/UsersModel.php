@@ -8,7 +8,7 @@ use App\App;
 class UsersModel extends Model{
 
 	/* protected static $table = 'users'; */
-	protected static $table;
+	/* protected static $table; */
 	/* public $App = new App; */
 
 	public function connexion(){
@@ -43,7 +43,7 @@ class UsersModel extends Model{
 					/* $cle = md5(microtime(TRUE)*100000); */
 					$valid = 1;
 					try {
-							$state = array("login"=>"a","password"=>"a","valid"=>1);
+							$state = array("login"=>"x","password"=>"x","valid"=>1);
 							$res = Model::insert_into($state);
 							/* $res = $db->query('INSERT INTO users (login, password, valid) VALUES(:login, :password, :valid)', array( */
 							/* 		':login' => $login, */
@@ -61,8 +61,23 @@ class UsersModel extends Model{
 				echo 'not conform to the fields';
 			}
 
-
 	}
+
+	public function add_friend() {
+
+		echo 'WE NEED TO IMPLEMENT ANOTHER SITE WITH SYMPHONY OR LARAVEL TO LEARN HOW TO MANAGE FRIENDS AND GROUPS';
+		echo '\n';
+		echo 'We must manage the friends at least in a easy way';
+	}
+
+	public function delete_friend() {
+
+		echo 'WE NEED TO IMPLEMENT ANOTHER SITE WITH SYMPHONY OR LARAVEL TO LEARN HOW TO MANAGE FRIENDS AND GROUPS';
+		echo '\n';
+		echo 'We must manage the friends at least in a easy way';
+	}
+
+
 }
 
 ?>

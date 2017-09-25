@@ -24,14 +24,18 @@ class Model{
 		return self::$table;
 	}
 
-	/* public function get_where($what,$where,$value){ */
+	public function get_where($what,$where,$value,$in=null){
 
-	/* 	$statement = 'SELECT ' . $what . ' FROM ' . self::getTable() . */
-	/* 		' WHERE ' . $where . '=' . "'" . $value . "'"; */
-	/* 	$res = App::query($statement); */
+		if ($in==null) {
+			$in = self::getTable();
+		}
+		$statement = 'SELECT ' . $what . ' FROM ' . $in .
+			' WHERE ' . $where . '=' . "'" . $value . "'";
+		var_dump($statement);
+		$res = App::query($statement);
 
-	/* 	return $res; */
-        /* } */
+		return $res;
+        }
 
 	public function get_where_and($array){
 		//where is the database column

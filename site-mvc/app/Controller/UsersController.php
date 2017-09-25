@@ -4,6 +4,7 @@ namespace App\Controller;
 use Core\Controller\Controller;
 use App\Controller\AppController;
 use App\Models\UsersModel;
+use App\Models\GroupsModel;
 
 class UsersController extends AppController{
 /* class UsersController { */
@@ -117,7 +118,10 @@ class UsersController extends AppController{
 	public function delete_friend_form() {
 
 		if ($this->isconnected()){
-			echo 'delete friend';
+			$this->render('users/preferences');
+		} else {
+			$name_field	= 'login';
+			$this->render_form('users/delete_friend',compact('name_field'));
 		}
 	}
 
@@ -149,8 +153,13 @@ class UsersController extends AppController{
 	}
 	public function create_group() {
 
+		$model = new GroupsModel();
+		$model->create_group();
+
 		if ($this->isconnected()){
-			echo 'create group';
+			$this->render('users/preferences');
+		} else {
+			$this->inscription_form();
 		}
 	}
 
