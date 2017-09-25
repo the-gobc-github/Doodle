@@ -32,51 +32,37 @@ class UsersModel extends Model{
 		}
 
 
-	/* public function inscription() { */
+	public function inscription() {
 
-			/* if($_POST['login'] != NULL AND $_POST['password'] != NULL AND $_POST['password_confirm'] != NULL  AND  $_POST['password'] == $_POST['password_confirm']) */
-			/* { */
-			/* 		$login = $_POST['login']; */
-			/* 		/1* $password = md5($_POST['password']); *1/ */
-			/* 		$password = $_POST['password']; */
-			/* 		$email = $_POST['email']; */
-			/* 		$cle = md5(microtime(TRUE)*100000); */
-			/* 		$valid = 1; */
-			/* 		try { */
-			/* 				$res = $db->query('INSERT INTO users (login, cle, email, password, valid) VALUES(:login, :cle, :email, :password, :valid)', array( */
-			/* 						':login' => $login, */
-			/* 						':password' => $password, */
-			/* 						':email' => $email, */
-			/* 						':cle' => $cle, */
-			/* 						':valid' => $valid)); */
-			/* 				include('../pages/home.php'); */
-			/* 		} */
-			/* 		catch(Exception $e) */
-			/* 		{ */
-			/* 				echo 'prout'; */
-			/* 				die('Erreur : '.$e->getMessage()); */
-			/* 		} */
-			/* } */
+			if($_POST['login'] != NULL AND $_POST['password'] != NULL AND $_POST['password_confirm'] != NULL  AND  $_POST['password'] == $_POST['password_confirm'])
+			{
+					$login = $_POST['login'];
+					/* $password = md5($_POST['password']); */
+					$password = $_POST['password'];
+					$email = $_POST['email'];
+					/* $cle = md5(microtime(TRUE)*100000); */
+					$valid = 1;
+					try {
+							$state = array("login"=>"a","password"=>"a","valid"=>1);
+							$res = Model::insert_into($state);
+							/* $res = $db->query('INSERT INTO users (login, password, valid) VALUES(:login, :password, :valid)', array( */
+							/* 		':login' => $login, */
+							/* 		':password' => $password, */
+							/* 		':valid' => $valid)); */
+					}
+					catch(Exception $e)
+					{
+							echo 'prout';
+							die('Erreur : '.$e->getMessage());
+					}
+			}
 
-			/* if($_POST['login'] == NULL) */
-			/* { */
-			/* 		/1* header('Location: index.php?p=inscription&c=fail&err=1'); *1/ */
-			/* } */
-			/* if($_POST['password'] == NULL) */
-			/* { */
-			/* 		/1* header('Location: index.php?p=inscription&c=fail&err=2'); *1/ */
-			/* } */
-			/* if($_POST['password_confirm'] == NULL) */
-			/* { */
-			/* 		/1* header('Location: index.php?p=inscription&c=fail&err=3'); *1/ */
-			/* } */
-			/* if($_POST['password'] != $_POST['password_confirm']) */
-			/* { */
-			/* 		/1* header('Location: index.php?p=inscription&c=fail&err=4'); *1/ */
-			/* } */
+			else {
+				echo 'not conform to the fields';
+			}
 
 
-	/* } */
+	}
 }
 
 ?>

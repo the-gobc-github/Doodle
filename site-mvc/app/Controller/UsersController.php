@@ -25,7 +25,7 @@ class UsersController extends AppController{
 		} else {
 			$name_field	= 'login';
 			$pwd_field = 'password';
-			$ref_field = '?p=users/inscription';
+			$ref_field = '?p=users/inscription_form';
 			$text_field = 'Inscris toi !';
 			$this->render_form('users/connexion',compact('name_field','pwd_field'),compact('ref_field','text_field'));
 		}
@@ -91,20 +91,45 @@ class UsersController extends AppController{
 	//*************** FRIENDS ***************
 	//
 	//ADD FRIEND
-	public function prf_friends() {
+	public function add_friend_form() {
 
 		if ($this->isconnected()){
-			$name_field	= 'friend';
-			$this->render_form('users/add-friend',compact('name_field'));
+			$this->render('users/calendar');
 		} else {
-			$this->render('users/connexion_form');
-			}
+			$name_field	= 'login';
+			$this->render_form('users/add_friend',compact('name_field'));
+		}
 
 	}
-	public function add_friend() {
+
+	public function add_friend(){
+
+		$model = new UsersModel();
+		$model->add_friend();
 
 		if ($this->isconnected()){
-			echo 'add friend';
+			$this->render('users/preferences');
+		} else {
+			$this->connexion_form();
+		}
+	}
+
+	public function delete_friend_form() {
+
+		if ($this->isconnected()){
+			echo 'delete friend';
+		}
+	}
+
+	public function delete_friend(){
+
+		$model = new UsersModel();
+		$model->inscription();
+
+		if ($this->isconnected()){
+			$this->render('users/calendar');
+		} else {
+			$this->inscription_form();
 		}
 	}
 
@@ -232,6 +257,7 @@ class UsersController extends AppController{
 
 	//DISCONNECT
 	public function disconnect(){
+		#FIX IT
 		session_destroy();
 		session_start();
 		$this->connexion_form();

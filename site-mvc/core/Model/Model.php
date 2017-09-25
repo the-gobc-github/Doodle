@@ -36,7 +36,6 @@ class Model{
 	public function get_where_and($array){
 		//where is the database column
 		//array is the argument for PDO. It contains key that are used in the query
-		$w_arr = array();
 		$v = '';
 		$cpt = 0;
 		foreach ($array as $key => $value) {
@@ -72,30 +71,26 @@ class Model{
 	/* 	App::query($statement,array(':u' => $value)); */
 	/* } */
 
-	/* public function insert($rows,$array){ */
-	/* 	$r = ''; */
-	/* 	$v = ''; */
-	/* 	$cpt = 0; */
-	/* 	foreach ($rows as $row) { */
-	/* 		if ($cpt>0) { */
-	/* 			$r =  $r . ', ' . $row; */
-	/* 		} else { */
-	/* 			$r = $row; */
-	/* 			$cpt += 1; */
-	/* 		} */
-	/* 	} */
-	/* 	$cpt = 0; */
-	/* 	foreach ($array as $key => $value) { */
-	/* 		if ($cpt>0) { */
-	/* 			$v =  $v . ', ' . $key; */
-	/* 		} else { */
-	/* 			$v = $key; */
-	/* 			$cpt += 1; */
-	/* 		} */
-	/* 	} */
-	/* 	$statement = 'INSERT INTO ' . self::getTable() . ' (' . $r . ') VALUES (' . $v')'; */
-	/* 	App::query($statement,$array); */
-	/* } */
+	public function insert_into($array){
+		//where is the database column
+		//array is the argument for PDO. It contains key that are used in the query
+		$v = '';
+		$i = '';
+		$cpt = 0;
+		foreach ($array as $key => $value) {
+			if ($cpt>0) {
+				$v =  $v . ', :' . $key;
+				$i =  $i . ', ' . $key;
+			} else {
+				$v = ':' . $key;
+				$i = $key;
+			}
+			$cpt+=1;
+		}
+		$statement = 'INSERT INTO ' . self::getTable() . ' (' . $i . ') VALUES (' . $v . ')';
+		var_dump($statement);
+		$res = App::query($statement,$array);
+	}
 
 }
 
