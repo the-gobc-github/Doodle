@@ -1,7 +1,7 @@
 <?php
 echo "<div class='submenu-mng_grp'>
 <ul>
-	<li><a href='index.php?p=users/add_mbr_form'>Ajouter un membre</a></li>
+	<li><a href='index.php?p=users/group_invite_form'>Ajouter un ami à un groupe</a></li>
 	<li><a href='index.php?p=users/create_event_form'>Créer un évenement</a></li>
 	<li><a href='index.php?p=users/delete_mbr_form'>Supprimer un membre</a></li>
 	<li><a href='index.php?p=users/delete_grp_form'>Supprimer un groupe</a></li>

@@ -10,7 +10,6 @@ class Controller{
 	protected $form = 'form';
 
 	public function isconnected(){
-		var_dump($_SESSION);
 		return isset($_SESSION['log']);
 
 	}

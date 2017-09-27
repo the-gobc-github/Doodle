@@ -163,20 +163,26 @@ class UsersController extends AppController{
 		}
 	}
 
-	//ADD FRIEND
-	public function add_mbr_form() {
+	//INVITE FRIEND IN GROUP
+	public function group_invite_form() {
 
 		if ($this->isconnected()){
 			$name_field	= 'friendname';
-			$this->render_form('users/add_mbr',compact('name_field'));
+			$group_field	= 'groupname';
+			$this->render_form('users/group_invite',compact('name_field','group_field'));
 		} else {
 			$this->render('users/connexion_form');
 			}
 	}
-	public function add_mbr() {
+	public function group_invite() {
+
+		$model = new GroupsModel();
+		$model->group_invite();
 
 		if ($this->isconnected()){
-			echo 'add member';
+			$this->render('users/preferences');
+		} else {
+			$this->inscription_form();
 		}
 	}
 

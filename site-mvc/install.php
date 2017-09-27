@@ -84,7 +84,7 @@ else
 		echo "        error creating table groups".mysqli_error($connection);
 
 
-$statement = "INSERT INTO `groups` (`GroupID`, `UserID`, `name`) VALUES ('1', '1','first'), ('1', '2','second'),('2', '3','third'), ('2', '4','fourth');";
+$statement = "INSERT INTO `groups` (`GroupID`, `UserID`, `name`) VALUES ('0', '1','first'), ('0', '2','first'),('1', '3','second'), ('1', '4','second');";
 
 if (mysqli_query($connection, $statement))
 	echo "        Groups ADDED";

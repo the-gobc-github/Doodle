@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-echo $_SERVER['SCRIPT_NAME'];
 /* define('ROOT', str_replace('/doomvc/site-mvc/public/index.php','..',$_SERVER['SCRIPT_NAME'])); */
 define('ROOT', str_replace('/public/index.php','..',$_SERVER['SCRIPT_NAME']));
 

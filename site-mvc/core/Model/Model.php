@@ -73,9 +73,11 @@ class Model{
 	/* 	App::query($statement,array(':u' => $value)); */
 	/* } */
 
-	public function insert_into($array){
+	public function insert_into($array,$in=null){
 		//where is the database column
 		//array is the argument for PDO. It contains key that are used in the query
+		if ($in==null){$in = self::getTable();}
+
 		$v = '';
 		$i = '';
 		$cpt = 0;
@@ -89,8 +91,7 @@ class Model{
 			}
 			$cpt+=1;
 		}
-		$statement = 'INSERT INTO ' . self::getTable() . ' (' . $i . ') VALUES (' . $v . ')';
-		var_dump($statement);
+		$statement = 'INSERT INTO ' . $in . ' (' . $i . ') VALUES (' . $v . ')';
 		$res = App::query($statement,$array);
 	}
 
