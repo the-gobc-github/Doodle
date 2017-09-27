@@ -5,6 +5,7 @@ namespace App\Models;
 use Core\Model\Model;
 use App\App;
 
+/* Controlled by UsersController */
 class GroupsModel extends Model{
 
 	public function create_group() {
@@ -17,8 +18,11 @@ class GroupsModel extends Model{
 							$what = 'UserID';
 							$where = 'login';
 							$value = 'a';
-							$in = 'users';
-							$userid = Model::get_where($what,$where,$value,$in);
+							$from = 'users';
+
+							$array = array("login"=>"a");
+							/* Model::get_where($array,$what,$from); */
+							$userid = Model::get_where($array,$what,$from)->fetch();
 							var_dump($user_id);
 							/* $state = array("name"=>"X","UserID"=>1); */
 							/* $res = Model::insert_into($state); */
