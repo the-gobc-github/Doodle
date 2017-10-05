@@ -186,26 +186,6 @@ class UsersController extends AppController{
 		}
 	}
 
-	/* //CREATE EVENT */
-	public function create_event_form() {
-
-		if ($this->isconnected()){
-			$name_field	= 'title';
-			$group_field = 'name';
-			$start_field = 'start';
-			$end_field = 'end';
-			$this->render_form('users/create_event',compact('name_field','group_field','start_field','end_field'));
-		} else {
-			$this->render('users/connexion_form');
-			}
-	}
-	public function create_event() {
-
-		if ($this->isconnected()){
-			echo 'create event';
-		}
-	}
-
 	//DELETE MEMBER
 	public function delete_mbr_form() {
 
@@ -219,7 +199,14 @@ class UsersController extends AppController{
 	}
 	public function delete_mbr() {
 
-		echo 'delete member';
+		$model = new GroupsModel();
+		$model->delete_mbr();
+
+		if ($this->isconnected()){
+			$this->render('users/preferences');
+		} else {
+			$this->inscription_form();
+		}
 
 	}
 
@@ -236,7 +223,14 @@ class UsersController extends AppController{
 	}
 	public function delete_grp() {
 
-		echo 'delete group';
+		$model = new GroupsModel();
+		$model->delete_grp();
+
+		if ($this->isconnected()){
+			$this->render('users/preferences');
+		} else {
+			$this->inscription_form();
+		}
 	}
 
 	//RENAME GROUP
@@ -252,7 +246,15 @@ class UsersController extends AppController{
 			}
 	}
 	public function rename_grp() {
-		echo 'rename group';
+
+		$model = new GroupsModel();
+		$model->rename_grp();
+
+		if ($this->isconnected()){
+			$this->render('users/preferences');
+		} else {
+			$this->inscription_form();
+		}
 	}
 
 	//QUIT GROUP
@@ -266,7 +268,15 @@ class UsersController extends AppController{
 			}
 	}
 	public function quit_grp() {
-		echo 'quit group';
+
+		$model = new GroupsModel();
+		$model->quit_grp();
+
+		if ($this->isconnected()){
+			$this->render('users/preferences');
+		} else {
+			$this->inscription_form();
+		}
 	}
 
 

@@ -60,18 +60,17 @@ class Model{
 
 	/* } */
 
-	/* public function delete($where,$value){ */
+	public function delete($where,$value){
 
-	/* $statement = 'DELETE FROM `' . self::getTable() . '` WHERE `' . $where . '`=:d'; */
-	/* App::query($statement,array(':d' => $value)); */
+		$statement = 'DELETE FROM `' . self::getTable() . '` WHERE `' . $where . '`=:d';
+		App::query($statement,array(':d' => $value));
 
-	/* } */
+	}
 
-	/* public function update($what,$value,$where,$v_where){ */
-
-	/* 	$statement = "UPDATE " . self::getTable() . " SET " . $what . "= :u WHERE " . $where . "='" . $v_where . "'"; */
-	/* 	App::query($statement,array(':u' => $value)); */
-	/* } */
+	public function update($what,$value,$where,$v_where){
+		$statement = "UPDATE " . self::getTable() . " SET " . $what . "= :u WHERE " . $where . "='" . $v_where . "'";
+		App::query($statement,array(':u' => $value));
+	}
 
 	public function insert_into($array,$in=null){
 		//where is the database column
