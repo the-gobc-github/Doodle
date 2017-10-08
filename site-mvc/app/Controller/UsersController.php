@@ -3,6 +3,7 @@
 namespace App\Controller;
 use Core\Controller\Controller;
 use App\Controller\AppController;
+use App\Controller\CalendarController;
 use App\Models\UsersModel;
 use App\Models\GroupsModel;
 
@@ -10,9 +11,12 @@ class UsersController extends AppController{
 /* class UsersController { */
 
 	public function calendar(){
-		#This should be in CalendarController
+		#This is now in CalendarController
+		$controller = new CalendarController();
+		echo 'ok';
 		if ($this->isconnected()) {
-			$this->render('users/calendar');
+			echo 'coneected';
+			$controller->show();
 		}
 		else {
 			$this->connexion_form();
@@ -22,7 +26,7 @@ class UsersController extends AppController{
 	public function connexion_form(){
 
 		if ($this->isconnected()){
-			$this->render('users/calendar');
+			$this->calendar();
 		} else {
 			$name_field	= 'login';
 			$pwd_field = 'password';
@@ -36,7 +40,7 @@ class UsersController extends AppController{
 	public function inscription_form(){
 
 		if ($this->isconnected()){
-			$this->render('users/calendar');
+			$this->calendar();
 		} else {
 			$name_field	= 'login';
 			$email_field = 'email';
@@ -53,7 +57,7 @@ class UsersController extends AppController{
 		echo 'connexion';
 		$model->connexion();
 		if ($this->isconnected()){
-			$this->render('users/calendar');
+			$this->calendar();
 		} else {
 
 			$this->connexion_form();
@@ -66,7 +70,7 @@ class UsersController extends AppController{
 		$model->inscription();
 
 		if ($this->isconnected()){
-			$this->render('users/calendar');
+			$this->calendar();
 		} else {
 			$this->inscription_form();
 		}
@@ -95,7 +99,7 @@ class UsersController extends AppController{
 	public function add_friend_form() {
 
 		if ($this->isconnected()){
-			$this->render('users/calendar');
+			$this->calendar();
 		} else {
 			$name_field	= 'login';
 			$this->render_form('users/add_friend',compact('name_field'));
