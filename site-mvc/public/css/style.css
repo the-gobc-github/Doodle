@@ -124,14 +124,16 @@ body {font-family: Verdana, sans-serif;}
     letter-spacing: 3px;
 }
 
-.month .prev {
+.month .prev .slide {
     float: left;
     padding-top: 10px;
+	color: white;
 }
 
-.month .next {
+.month .next .slide {
     float: right;
     padding-top: 10px;
+	color: white;
 }
 
 .weekdays {

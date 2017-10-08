@@ -16,14 +16,37 @@ class CalendarController extends AppController{
 
 	public function init(){
 
+		echo '<br>';
 		$this->month = date('m',time());
-		if (isset($_GET['month'])) {
-			$this->month = $_GET['month'];
+		var_dump($_GET);
+		echo '<br>';
+		if (isset($_GET['a']) && isset($_GET['m'])) {
+			$m = $_GET['m'];
+			$y_shift = 0;
+			if ($_GET['a']=='prev') {
+				if ($m=='January') {
+					$this->month = 12;
+					$y_shift = -1;
+				} else {
+					$this->month = $this->month_arr[$m];
+				}
+			}
+			if ($_GET['a']=='next') {
+				if ($m=='December') {
+					$this->month = 1;
+					var_dump($this->month);
+					$y_shift = 1;
+				} else {
+					$this->month = $this->month_arr[$m]+2;
+					var_dump($this->month);
+				}
+			}
 		}
 
 		$this->year = date('Y',time());
-		if (isset($_GET['year'])) {
-			$this->year = $_GET['year'];
+		if (isset($_GET['y'])) {
+			$y = $_GET['y'];
+			$this->year = $y + $y_shift;
 		}
 
 		$this->ddate = $this->year . '-' . $this->month . '-01';
@@ -51,7 +74,6 @@ class CalendarController extends AppController{
 		//GET FIRST DAY OF MONTH
 		$first_day = $date->format('l');
 		$first_day = $first_day[0] . $first_day[1] . $first_day[2];
-		echo '<br>';
 		//GET NB DAYS IN MONTH
 		$nb_days = $date->format('t');
 		//GET NB WEEKS IN MONTH
